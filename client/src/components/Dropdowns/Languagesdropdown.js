@@ -1,7 +1,6 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
 import { useTranslation } from "react-i18next";
-// import i18n from "i18next";
 
 const Languagesdropdown = () => {
   const {t,i18n} = useTranslation()

@@ -113,7 +113,7 @@ export default function ProjectReviewCard1(props) {
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            MYGS
+            Pro
           </Avatar>
         }
         action={

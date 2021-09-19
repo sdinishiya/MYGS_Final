@@ -4,30 +4,37 @@ import Auth from "../layouts/Auth";
 import Landing from "../views/Landing";
 import LogLanding from "../views/Loglanding";
 import Profile from "../views/Profile";
+
 import ViewScheduled from "../components/Appointment/ViewScheduled";
 import Schedule from "../components/Appointment/schedule";
 import ViewRequests from "../components/Appointment/ViewRequests";
 import ViewConfirmed from "../components/Appointment/ViewConfirmed";
 import UserView from "../components/Appointment/UserView";
 import UserBooking from "../components/Appointment/UserBooking";
+
 import AddNotice from "../components/Notice/AddNotice";
 import NoticeTable from "../components/Notice/noticeView";
 import AllNotice from "../components/Notice/AllNoticeView";
+
 import AddMessage from "../components/Notice/AddMessage";
 import MessageView from "../components/Notice/MessageView";
 import AllMessageView from "../components/Notice/AllMessageView";
+
 import Receive from "../components/Finance/CashReceive";
 import Expense from "../components/Finance/AddExpenses";
 import PettyCash from "../components/Finance/ViewPettycash";
-import AddForum from "../components/Forum/AddForum";
-import AddNewForum from "../components/Forum/AddNewForum";
-import ForumTable from "../components/Forum/ForumView";
-import ForumView from "../components/Pages/Formpage";
+
+import AddForum from "components/Forum/AddForum.js";
+import ForumTable from "components/Forum/ForumView.js";
+import ForumView from "components/Pages/Formpage.js";
+import AddNewForum from "components/Forum/AddNewForum.js";
+
 import Fund from "../components/Finance/ViewFund";
 import ReceivedFund from "../components/Finance/AddReceivedfund";
 import AllocateFund from "../components/Finance/AllocateFund";
 import Donation from "../components/Finance/ViewDonation";
 import AddDonation from "../components/Finance/AddDonation";
+
 import ConstMaterial from "../components/Material/ConstMaterial";
 import AddnewconstMaterial from "../components/Material/AddnewconstMaterial";
 import AddconstMaterial from "../components/Material/AddconstMaterial";
@@ -47,6 +54,7 @@ import Const from "../components/Material/Users/Const";
 import Agri from "../components/Material/Users/Agri";
 import Other from "../components/Material/Users/Other";
 import CardPageVisitsCheck from "../components/Cards/CardPageVisitsCheck";
+
 import React from "react";
 import {NAVIGATION_ROUTES} from "./constant/NavigationRoutes";
 import {AuthRoute} from "./route/AuthRoute";
@@ -61,7 +69,7 @@ import FormTemplateView from "../components/FormTemplate/FormTemplateView";
 import ActiveForms from "../components/FormTemplate/ActiveForms";
 import UserFormView from "../components/FormTemplate/UserFormView";
 import Donate2 from "../components/Donation/donate2";
-
+import UpdateconstMaterial from "../components/Material/UpdateconstMaterial";
 
 // Projects
 import PresentProject from "components/Projects/PresentProjects";
@@ -75,7 +83,6 @@ import UserPresentProject from "components/Projects/Users/UserPresentProject";
 import UserPastProject from "components/Projects/Users/UserPastProject";
 
 
-
 const Routes = () => {
     return(
         <BrowserRouter>
@@ -85,8 +92,8 @@ const Routes = () => {
                 <ProtectedRoute path={NAVIGATION_ROUTES.auth} component={Auth} />
                 {/* add routes without layouts */}
                 <Route path={NAVIGATION_ROUTES.landing} exact component={Landing} />
-                <AuthRoute path={NAVIGATION_ROUTES.logLanding} exact component={LogLanding} />
-                <AuthRoute path={NAVIGATION_ROUTES.Guestprofile} exact component={Profile} />
+                <AuthRoute path={NAVIGATION_ROUTES.login} exact component={LogLanding} />
+                <AuthRoute path={NAVIGATION_ROUTES.logLanding} exact component={Profile} />
                 {/*<AuthRoute path={NAVIGATION_ROUTES.complaints} exact component={ComplaintsController} />*/}
                 <Route path="/" exact component={Landing} />
                 {/* add redirect for first page */}
@@ -126,11 +133,11 @@ const Routes = () => {
                 <AuthRoute path="/ViewPettycash" component={PettyCash}/>
 
                 {/* Forum */}
-                <AuthRoute path="/AddForum" component={AddForum}/>
-                <AuthRoute path="/AddNewForum" component={AddNewForum}/>
-                <AuthRoute path="/forumView" component={ForumTable}/>
-                <AuthRoute path="/Forumpage" component={ForumView}/>
-
+                <AuthRoute path="/AddForum" component={AddForum} />
+                <AuthRoute path="/AddNewForum" component={AddNewForum} />
+                <AuthRoute path="/forumView" component={ForumTable} />
+                <AuthRoute path="/Forumpage" component={ForumView} />
+                
                 {/* Fund */}
                 <AuthRoute path="/ViewFund" component={Fund}/>
                 <AuthRoute path="/AddReceivedfund" component={ReceivedFund}/>
@@ -149,6 +156,7 @@ const Routes = () => {
                 <AuthRoute path="/AddconstMaterial" component={AddconstMaterial}/>
                 <AuthRoute path="/SupplyconstMaterial" component={SupplyconstMaterial}/>
                 <AuthRoute path="/ViewSuppliedconstMaterial" component={ViewSupplyConst}/>
+                <Route path="/UpdateconstMaterial/:materialid" component={UpdateconstMaterial}/>
 
                 {/* Agri Material */}
                 <AuthRoute path="/AgriMaterial" component={AgriMaterial}/>
@@ -170,17 +178,17 @@ const Routes = () => {
                 <AuthRoute path ="/Users/Other" component={Other}/>
 
                 {/* Projects */}
-                 <Route path="/PresentProjects" component={PresentProject}/>
+                    <Route path="/PresentProjects" component={PresentProject}/>
                     <Route path="/FutureProject" component={FutureProject}/>
                     <Route path="/PastProject" component={PastProject}/>
                     <Route path="/AddProjects" component={AddProjects}/>
-                    <Route path="/EditProject/:id" component={EditProjects}/>
+                    <Route path="/EditProject" component={EditProjects}/>
                 {/* Users */}
                     <Route path="/UserFutureProject" component={UserFutureProject}/>
                     <Route path="/UserPresentProject" component={UserPresentProject}/>
                     <Route path="/UserPastProject" component={UserPastProject}/>
 
-                
+                {/* people */}
 
 
                 <AuthRoute path="/CardPageVisitsCheck" component={CardPageVisitsCheck}/>

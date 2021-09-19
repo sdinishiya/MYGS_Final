@@ -21,5 +21,4 @@ export const NAVIGATION_ROUTES = {
     landing: "/landing",
     logLanding: "/logLanding",
     profile: "/profile",
-    GuestProfile:"/GuestProfile"
 }

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
-import props from 'prop-types';
+import fileDownload from "js-file-download";
 
 // components
 import Navbarloglanding from "components/Navbars/Navbarlanding";
@@ -24,20 +24,17 @@ export default function UserFormView() {
         setforms(response.data)
     })
   },[])
+
  //download
-  const [downloadform,setdownloadform]=useState([]);
-      const download = (formID) => {
 
-      axios.get("http://localhost:3001/download").then((response)=>{
-          setdownloadform(response.data)
-        })
+      const download = async(formID) => {
+      const response = await axios.get(`http://localhost:3001/download?id=${formID}`) 
+      console.log(response);
 
-        .then((response) => {
-          
-        });
+
+      fileDownload(response.data, 'Official Form .pdf');
       alert(" Form Downloaded Successfully ");
     };
-      
        
   return (
     <>

@@ -55,7 +55,7 @@ export default function ActiveForms() {
         <section className="relative block py-18 lg:pt-0 ">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
-              <div className="w-full lg:w-11/12 px-4">
+              <div className="w-full lg:w-12/12 px-4">
 
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                     <div className="rounded-t mb-0 px-4 py-3 border-0">
@@ -103,9 +103,7 @@ export default function ActiveForms() {
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                                 
                           </th>
-                          <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                               
-                          </th>
+                          
                           </tr>
                         </thead>
                         <tbody>
@@ -163,8 +161,8 @@ export default function ActiveForms() {
                                         Edit
                                   </button>
                                 </Link> 
-                              </td>
-                              <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                              {/* </td>
+                              <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> */}
                               <Link to="/FormTemplateView">
                                   <button className="bg-red-500 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                         type="submit"

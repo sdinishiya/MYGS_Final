@@ -52,7 +52,7 @@ export default function ViewRequests() {
         <section className="relative block py-18 lg:pt-0 ">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
-              <div className="w-full lg:w-10/12 px-4">
+              <div className="w-full lg:w-12/12 px-4">
 
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                     <div className="rounded-t mb-0 px-4 py-3 border-0">

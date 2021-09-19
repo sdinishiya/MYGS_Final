@@ -49,7 +49,7 @@ export default function AddForm() {
          });
 
          alert(" Added Successfully ");
-        history.push("/FormTemplate/AddForms");
+        history.push("/AddForms");
     };
   return (
     <>
@@ -102,7 +102,10 @@ export default function AddForm() {
                     </div>
                     <div className="relative w-full mb-3 mt-8">
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                      <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                >
                         Add Form Template
+                        </button>
                       </label>
                       <input type="file"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 "

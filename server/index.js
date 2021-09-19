@@ -2,18 +2,10 @@ const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
 const bcrypt = require('bcrypt');
-
 const httpStatus = require('http-status');
 const routes = require('./routes')
 const axios = require("axios")
 const {db} = require('./config/db.config')
-
-
-//const axios = require("axios");
-const TXT_UID= "94711655166";
-const TXT_PW= "9411";
-
-
 // const fileUpload = require('express-fileupload');
 
 // const { response } = require('express');
@@ -79,6 +71,7 @@ app.post('/create',(req,res)=>{
     })
     
 });
+
 app.get('/materials',(req,res)=>{
     db.query("SELECT c.*,n.materialname FROM newconstmaterial n JOIN constsmaterial c ON n.materialid = c.materialid order by addeddate ASC",(err,result,) => {
         if(err) {
@@ -456,19 +449,20 @@ app.get('/othersupply',(req,res)=>{
 // });
 
 app.post('/add_donation', (req, res)=> {
-
-	const first_name = req.body.first_name;
+	const date = req.body.date;
+    const first_name = req.body.first_name;
 	const last_name = req.body.last_name;
 	const donation_amt = req.body.donation_amt;
+    const description = req.body.description;
 	const address = req.body.address;
 	const city = req.body.city;
+    const country = req.body.country;
 	const phoneno = req.body.phoneno;
 	const email = req.body.email;
-    const date = req.body.date;
  	
 	db.query
-	("INSERT INTO donations (first_name, last_name, donation_amt, address, city, phoneno, email, date) VALUES (?,?,?,?,?,?,?,?,?)", 
-	[first_name, last_name, donation_amt, address, city, phoneno, email, date], 
+	("INSERT INTO donations (date, first_name, last_name, donation_amt, description, address, city, country, phoneno, email) VALUES (?,?,?,?,?,?,?,?,?,?)", 
+	[date, first_name, last_name, donation_amt, description, address, city, country, phoneno, email], 
 	(err, result)=> {
 		if(err){
 			console.log(err);
@@ -490,6 +484,8 @@ app.get('/donationview',(req,res)=>{
         
     });
 });
+
+
 
 // income
 app.post('/financecreate',(req,res)=>{
@@ -830,9 +826,6 @@ app.put('/edit-donations', (req,res) => {
   });
 
 
-
-
-
 //notice
 app.post('/addnotice',(req,res)=>{
     console.log(req.body)
@@ -916,9 +909,95 @@ app.put('/active-notice', (req,res) => {
   });
 
   //General Message
+app.post('/addsms',(req,res)=>{
+    console.log(req.body)
+    const topic = req.body.topic;
+    const description = req.body.description;
+    const uploadDate = req.body.uploadDate;
+    const expDate = req.body.expDate;
+    const status= "Not-Sent"
+
+    db.query("INSERT INTO sms (topic,description,uploadDate,expDate,status) VALUES (?,?,?,?,?)",
+    [topic,description,uploadDate,expDate,status],(err,result)=>{
+		if(err){
+            console.log(err);
+            res.status(500).send(JSON.parse("{'status': 'Failed'}"));
+        } else{
+            res.send("{'message': 'success'}");
+        }
+    })
+});
+
+app.get('/smsview',(req,res)=>{
+    db.query("SELECT  * FROM sms WHERE status = 'Sent' ORDER BY uploadDate ASC",(err,result,) => {
+        if(err) {
+		console.log(err)
+        res.status(500).send(JSON.parse("{'status': 'Failed'}"));
+	  } else {
+        res.send(result)
+	  } 
+        
+    });
+});
 
 
-//forumDiscussion
+app.get('/allsmsview',(req,res)=>{
+    db.query("SELECT * FROM sms ORDER BY uploadDate ASC",(err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  } 
+        
+    });
+});
+
+//send
+app.post('/send-sms', (req, res) => {
+    console.log(req.body)
+    const MID = "11111"
+    const SID = "943454353198"
+    const to_number = req.body.to;
+    const message = req.body.message;
+
+    axios.post("https://www.textit.biz/sendmsg", null, {
+        params: {
+            id: SID,
+            pw: MID,
+            to: to_number,
+            text: message
+        }
+    }).then(response => {
+        if (response.statusText === "OK") {
+            let resp = {
+                status: "success",
+                data: response.data
+            }
+            res.status(200).send(JSON.parse(resp))
+        }
+    }).catch(err => {
+        console.log(err);
+        res.status(500).send(JSON.parse("{'status': 'Failed'}"));
+    })
+
+});
+
+app.get('/get-booking-data',(req,res)=>{
+    const filter = req.query.filter;
+
+    db.query("SELECT phone FROM bookings WHERE book_status = ?",[filter],(err,result,) => {
+        if(err) {
+            res.status(500).send(JSON.parse("{'status': 'Failed'}"));
+	  } else {
+          let tmp = [];
+          result.forEach(entry => {
+            tmp.push(entry.phone)
+          })
+        res.status(200).send(tmp)
+	  } 
+    });
+});
+
 app.post('/addnewforum' , (req , res)=>{
     const postid = req.body.postid;
     const posttext = req.body.posttext;
@@ -964,17 +1043,21 @@ app.put('/update-forum',(req,res)=>{
     );
 });
 
+
 //formTemplates
 app.post('/add-form' , (req , res)=>{
     const formdata = JSON.parse(req.body.data);
     const formid = formdata.formid;
     const formTopic = formdata.formTopic;
+    // const file = formdata.file; 
     const UploadDate = formdata.UploadDate;
     const expDate = formdata.expDate;
     const description = formdata.description;
 
+
   console.log(req.body);
   console.log(req.files);
+
 
 let sampleFile;
 let uploadPath;
@@ -984,16 +1067,15 @@ let uploadPath;
   }
 
   console.log(__dirname);
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
   const randomfilenum = Math.floor(Math.random()*1000000);
   sampleFile = req.files.file;
   const newfilename = randomfilenum.toString() +sampleFile.name;
 
   uploadPath = __dirname + '/public/forms/' + newfilename
 
-  // Use the mv() method to place the file somewhere on your server
-  
-  // Use the mv() method to move the file in the server
 
+  // Use the mv() method to place the file somewhere on your server
   sampleFile.mv(uploadPath, function(err) {
    console.log(err);
   });
@@ -1010,25 +1092,6 @@ let uploadPath;
 
 });
 
-//download form
-// app.get('/download', function(req, res){
-
-// let sampleFile;
-// let dwnloadPath;
-
-//   const randomfilenum = Math.floor(Math.random()*1000000);
-//   sampleFile = req.files.file;
-//   const newfilename = randomfilenum.toString() +sampleFile.name;
-
-//   dwnloadPath = __dirname + '/public/forms/' + newfilename
-
-    
- 
-//     res.download(dwnloadPath, newfilename.pdf); 
-//   });
-
-
-//formview
 app.get('/formView',(req,res)=>{
     db.query("SELECT * FROM formtemplate ORDER BY uploadDate ASC",(err,result,) => {
         if(err) {
@@ -1091,7 +1154,6 @@ app.put('/activate-form', (req,res) => {
     );
   });
 
-  
 // projects
 app.post('/add_projects', (req, res)=> {
 
@@ -1116,6 +1178,7 @@ app.post('/add_projects', (req, res)=> {
 		}
 	})	
 });
+
 app.put('/update_project/:id', (req, res)=> {
 	var id=req.params.id;
 	
@@ -1191,7 +1254,6 @@ app.get('/getproject/:id', (req, res)=> {
 	})	
 });
 
-
 app.get('/get_present_projects', (req, res)=> {
 
 	db.query
@@ -1229,3 +1291,5 @@ app.get('/get_past_projects', (req, res)=> {
 app.listen(3001, () => {
 	console.log("running on port 3001");
 });
+
+

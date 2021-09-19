@@ -11,29 +11,33 @@ import FooterAdmin from "components/Footers/FooterAdmin.js";
 
 
 export default function AddDonation() {
-  const [date,setdate] = useState(""); 
-  const [donation_id,setdonation_id] = useState("");
+ 
+  const [date, setdate] = useState('');
+  const [noticeID,setID] = useState("");
   const [firstName, setfirstName] = useState('');
   const [lastName, setlastName] = useState('');
   const [donationAmt, setdonationAmt] = useState('');
+  const [description, setdescription] = useState('');
   const [address, setaddress] = useState('');
   const [city, setcity] = useState('');
-  const [phoneNo, setphoneNo] = useState('');
+  const [country, setcountry] = useState('');
+  const [phoneno, setphoneno] = useState('');
   const [email, setemail] = useState('');
     const history  = useHistory();
 
     const adddonation = (e)=>{
       e.preventDefault();
-      console.log(donation_id);
-       axios.post('http://localhost:3001/donations',{
+       axios.post('http://localhost:3001//add_donation',{
         date:date,
         first_name:firstName,
         last_name:lastName,
         donation_amt:Number(donationAmt),
-        address:address,
-        city:city, 
-        phoneno:phoneNo, 
-        email:email, 
+        description:description,
+        address:address, 
+        city:city,  
+        country:country,
+        phoneno:phoneno, 
+        email:email,   
 
         }).then(()=>{
            console.log("success");
@@ -109,6 +113,17 @@ export default function AddDonation() {
 
                     <div className="relative w-full mb-3 mt-8">
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                        Description
+                      </label>
+                      <input type="text"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        name="Description" onChange={(event)=>{setdescription(event.target.value);}} 
+                        required
+                        placeholder="Enter Description..."/>
+                    </div>
+
+                    <div className="relative w-full mb-3 mt-8">
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                         Address
                       </label>
                       <input type="text"
@@ -131,11 +146,22 @@ export default function AddDonation() {
 
                     <div className="relative w-full mb-3 mt-8">
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                        Country
+                      </label>
+                      <input type="text"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        name="Country" onChange={(event)=>{setcountry(event.target.value);}} 
+                        required
+                        placeholder="Enter Country..."/>
+                    </div>
+
+                    <div className="relative w-full mb-3 mt-8">
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                         Phone NO
                       </label>
                       <input type="text"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        name="Phone NO" onChange={(event)=>{setphoneNo(event.target.value);}} 
+                        name="Phone NO" onChange={(event)=>{setphoneno(event.target.value);}} 
                         required
                         placeholder="Enter Phone NO..."/>
                     </div>

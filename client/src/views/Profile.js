@@ -1,12 +1,12 @@
 import React from "react";
 
-import ProfNavbar from "components/Navbars/profileNav.js";
+import Navbarloglanding from "components/Navbars/Navbarlanding";
 import Footer from "components/Footers/Footer.js";
 
 export default function Profile() {
   return (
     <>
-      <ProfNavbar transparent />
+      <Navbarloglanding transparent />
       <main className="profile-page">
         <section className="relative block h-500-px">
           <div
