@@ -61,6 +61,7 @@ export default function Donate1() {
           setaddress("");
           setdescription("");
           setcity("");
+          setcountry("");
           setphoneno("");
           setemail("");
 
