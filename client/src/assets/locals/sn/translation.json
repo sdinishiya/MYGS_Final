@@ -1,0 +1,32 @@
+{
+    "welcome_message": "ආයුබෝවන්",
+    "app_title": "MEET YOUR GS",
+    "sub_title": "උඩපලතා ග්‍රාම නිලධාරී වසම",
+    "sub_title_h3": "අපි මහනුවර ප්‍රාදේශීය ලේකම් කාර්යාලය යටතේ ඇති ග්‍රාමසේවා නිලධාරී කොට්ඨාශයයි.",
+
+    "login": "ඇතුල් වන්න",
+    "signup": "ලියාපදිංචි වන්න",
+
+    "forms": "ආකෘති",
+    "form_body": "ග්‍රාම සේවා කාර්‍යාලයට නොගොස් ඔබට දැන් අවශ්‍ය සියළුම ලිපි ලේඛන සහ ආකෘති මාර්ගගතව බාගත හැකිය.",
+    "download": "නිල ආකෘති පත්‍ර බාගන්න",
+    "download_body": "ග්‍රාම සේවා කාර්‍යාලයට නොගොස් ඔබට දැන් අවශ්‍ය සියළුම ලිපි ලේඛන සහ ආකෘති මාර්ගගතව බාගත හැකිය.",
+    "click": "ආකෘති බාගැනීමට ක්ලික් කරන්න",
+
+    "project": "ව්යාපෘති විස්තර",
+    "project_details": "ඔබේ අසල්වැසි ප්‍රදේශ වල සිදු වන ව්‍යාපෘති පිළිබඳව තොරතුරු ලබා ගන්න. සැමගේම යහපත උදෙසා එකිනෙකාට උපකාර කිරීම සඳහා ප්‍රජාවක් වශයෙන් අපට කළ හැකි බොහෝ දේ ඇත.",
+    "project_name": "Project Details",
+    "project_body": "Take a look at the projects that are happening in your neighbourhood. There is so much that we can do as a community to help each other out for the welfare of everyone.",
+    "past": "පසුගිය ව්යාපෘති",
+    "current": "වත්මන් ව්යාපෘති",
+    "future": "අනාගතයේදී සැලසුම් කළ ව්‍යාපෘති",
+
+    "resource_details": "සම්පත් හා ද්‍රව්‍ය බෙදා හැරීමේ විස්තර",
+    "resource_details_body": "ඔබේ වත්මන් ව්‍යාපෘති හෝ නව නිපැයුම් සඳහා සම්පත් ද්‍රව්‍ය අවශ්‍යද? ඔබේ කුඩා පරිමාණ ව්‍යාපාර සැපයීමට සහ පහසුකම් සැලසීමට අපි මෙහි සිටිමු.",
+    "click_resource": "සම්පත් බැලීමට සහ ඉල්ලීමට ක්ලික් කරන්න",
+    "resource": "සම්පත්",
+    "resource_body": "In need of resource materials for your on-going projects or inventions? We are here to provide and facilitate your small scale businesses.  ",
+    
+    "lim": "Forms"
+   
+  }
