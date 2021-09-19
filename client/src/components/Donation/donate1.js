@@ -24,42 +24,44 @@ export default function Donate1() {
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-
+  const [date, setdate] = useState('');
   const [firstName, setfirstName] = useState('');
   const [lastName, setlastName] = useState('');
   const [donationAmt, setdonationAmt] = useState('');
-  const [address1, setaddress1] = useState('');
-  const [address2, setaddress2] = useState('');
+  const [description, setdescription] = useState('');
+  const [address, setaddress] = useState('');
   const [city, setcity] = useState('');
   const [country, setcountry] = useState('');
-  const [phoneNo, setphoneNo] = useState('');
+  const [phoneno, setphoneno] = useState('');
   const [email, setemail] = useState('');
 
   function submit(event){
     // event.preventDefault();
     axios.post(`http://localhost:3001/add_donation`, {
+        "date":date,
         "first_name":firstName,
         "last_name":lastName,
         "donation_amt":Number(donationAmt),
-        "address1":address1,
-        "address2":address2, 
-        "city":city, 
+        "description":description,
+        "address":address, 
+        "city":city,  
         "country":country,
-        "phoneno":phoneNo, 
+        "phoneno":phoneno, 
         "email":email,  
       })
       .then(function (response) {
           // handle success
          // console.log(response.data.response);
           //alert(response.data.response);
+          setdate("");
           setfirstName("");
           setlastName("");
           setdonationAmt("");
-          setaddress1("");
-          setaddress2("");
+          setdescription("");
+          setaddress("");
+          setdescription("");
           setcity("");
-          setcountry("");
-          setphoneNo("");
+          setphoneno("");
           setemail("");
 
       })
@@ -85,6 +87,17 @@ export default function Donate1() {
     <input type="hidden" name="order_id" value="ItemNo12345" />
     <input type="hidden" name="items" value="Door bell wireless" />
     <input type="hidden" name="currency" value="LKR" />
+
+    <div className="relative w-full mb-3 mt-8">
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                        Date
+                      </label>
+                      <input type="date"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        name="Date" onChange={(event)=>{setdate(event.target.value);}} 
+                        required
+                        placeholder="Date"/>
+                    </div>
 
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
@@ -127,25 +140,25 @@ export default function Donate1() {
         </Grid>
         <Grid item xs={12}>
           <TextField
-          value={address1}
-          onChange={(event) => setaddress1(event.target.value)}
+          value={description}
+          onChange={(event) => setdescription(event.target.value)}
             required
-            id="address1"
-            name="address"
-            label="Address line 1"
+            id="description"
+            name="description"
+            label="Description"
             fullWidth
-            autoComplete="Donor address-line1"
+            autoComplete="Description"
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
-          value={address2}
-          onChange={(event) => setaddress2(event.target.value)}
-            id="address2"
-            name="address2"
-            label="Address line 2"
+          value={address}
+          onChange={(event) => setaddress(event.target.value)}
+            id="address"
+            name="address"
+            label="Address line "
             fullWidth
-            autoComplete="Donor address-line2"
+            autoComplete="Donor address-line"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -168,8 +181,8 @@ export default function Donate1() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-          value={phoneNo}
-          onChange={(event) => setphoneNo(event.target.value)}
+          value={phoneno}
+          onChange={(event) => setphoneno(event.target.value)}
             required
             id="donor_phoneno"
             name="phone"
