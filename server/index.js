@@ -448,11 +448,12 @@ app.get('/othersupply',(req,res)=>{
 
 app.post('/add_donation', (req, res)=> {
 
+    const date = req.body.date
 	const first_name = req.body.first_name
 	const last_name = req.body.last_name
 	const donation_amt = req.body.donation_amt
-	const address1 = req.body.address1
-	const address2 = req.body.address2
+	const address = req.body.address
+    const description = req.body.description
 	const city = req.body.city
 	const country = req.body.country
 	const phoneno = req.body.phoneno
@@ -461,8 +462,8 @@ app.post('/add_donation', (req, res)=> {
 	console.log (donation_amt);
 	
 	db.query
-	("INSERT INTO donations (first_name, last_name, donation_amt, address1, address2, city, country, phoneno, email) VALUES (?,?,?,?,?,?,?,?,?)", 
-	[first_name, last_name, donation_amt, address1, address2, city, country, phoneno, email], 
+	("INSERT INTO donations (date, first_name, last_name, donation_amt, description, address, city, country, phoneno, email) VALUES (?,?,?,?,?,?,?,?,?,?)", 
+	[date, first_name, last_name, donation_amt, description, address, city, country, phoneno, email], 
 	(err, result)=> {
 		if(err){
 			console.log(err);
@@ -472,6 +473,17 @@ app.post('/add_donation', (req, res)=> {
 			res.send(200, { response: 'Donation done Sucessfully!!' });
 		}
 	})	
+});
+
+app.get('/donationview',(req,res)=>{
+    db.query("SELECT * FROM donations order by donation_id ASC" ,(err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  } 
+        
+    });
 });
 
 // income

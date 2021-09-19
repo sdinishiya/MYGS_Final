@@ -11,27 +11,33 @@ import FooterAdmin from "components/Footers/FooterAdmin.js";
 
 
 export default function AddDonation() {
-  const [date,setdate] = useState("");
-  const [donorID,setdonorID] = useState("");
-  const [donorName,setdonorName] = useState("");
-  const [address,setaddress] = useState("");
-  const [phone,setphone] = useState("");
-  const [email,setemail] = useState("");
-  const [description,setdescription] = useState("");
-  const [amount,setamount] = useState("");
+ 
+  const [date, setdate] = useState('');
+  const [noticeID,setID] = useState("");
+  const [firstName, setfirstName] = useState('');
+  const [lastName, setlastName] = useState('');
+  const [donationAmt, setdonationAmt] = useState('');
+  const [description, setdescription] = useState('');
+  const [address, setaddress] = useState('');
+  const [city, setcity] = useState('');
+  const [country, setcountry] = useState('');
+  const [phoneno, setphoneno] = useState('');
+  const [email, setemail] = useState('');
     const history  = useHistory();
 
     const adddonation = (e)=>{
       e.preventDefault();
-      console.log(donorID);
-       axios.post('http://localhost:3001/donationcreate',{
+       axios.post('http://localhost:3001/add_donation',{
         date:date,
-        donorName:donorName,
-        address:address,
-        phone:phone,
-        email:email,
+        first_name:firstName,
+        last_name:lastName,
+        donation_amt:Number(donationAmt),
         description:description,
-        amount:amount,
+        address:address, 
+        city:city,  
+        country:country,
+        phoneno:phoneno, 
+        email:email,   
 
         }).then(()=>{
            console.log("success");
@@ -74,46 +80,35 @@ export default function AddDonation() {
 
                     <div className="relative w-full mb-3 mt-8">
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                        Donor Name
+                        First Name
                       </label>
                       <input type="text"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        name="Donor Name" onChange={(event)=>{setdonorName(event.target.value);}} 
+                        name="First Name" onChange={(event)=>{setfirstName(event.target.value);}} 
                         required
                         placeholder="Enter Name..."/>
                     </div>
 
                     <div className="relative w-full mb-3 mt-8">
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                        Address
+                        Last Name
                       </label>
                       <input type="text"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        name="Address" onChange={(event)=>{setaddress(event.target.value);}} 
+                        name="Last Name" onChange={(event)=>{setlastName(event.target.value);}} 
                         required
-                        placeholder="Enter Address..."/>
+                        placeholder="Enter Name..."/>
                     </div>
 
                     <div className="relative w-full mb-3 mt-8">
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                        Phone No
+                        Donation Amount
                       </label>
                       <input type="text"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        name="Phone No" onChange={(event)=>{setphone(event.target.value);}} 
+                        name="Donation Amount" onChange={(event)=>{setdonationAmt(event.target.value);}} 
                         required
-                        placeholder="Enter Phone No..."/>
-                    </div>
-
-                    <div className="relative w-full mb-3 mt-8">
-                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                        Email ID
-                      </label>
-                      <input type="text"
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        name="Email ID" onChange={(event)=>{setemail(event.target.value);}} 
-                        required
-                        placeholder="Enter Email ID..."/>
+                        placeholder="Enter Donation Amount..."/>
                     </div>
 
                     <div className="relative w-full mb-3 mt-8">
@@ -129,15 +124,59 @@ export default function AddDonation() {
 
                     <div className="relative w-full mb-3 mt-8">
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                        Amount
+                        Address
                       </label>
                       <input type="text"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        name="Amount" onChange={(event)=>{setamount(event.target.value);}} 
+                        name="Address" onChange={(event)=>{setaddress(event.target.value);}} 
                         required
-                        placeholder="Enter Amount..."/>
+                        placeholder="Enter Address..."/>
                     </div>
-                    
+
+                    <div className="relative w-full mb-3 mt-8">
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                        City
+                      </label>
+                      <input type="text"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        name="City" onChange={(event)=>{setcity(event.target.value);}} 
+                        required
+                        placeholder="Enter City..."/>
+                    </div>
+
+                    <div className="relative w-full mb-3 mt-8">
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                        Country
+                      </label>
+                      <input type="text"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        name="Country" onChange={(event)=>{setcountry(event.target.value);}} 
+                        required
+                        placeholder="Enter Country..."/>
+                    </div>
+
+                    <div className="relative w-full mb-3 mt-8">
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                        Phone NO
+                      </label>
+                      <input type="text"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        name="Phone NO" onChange={(event)=>{setphoneno(event.target.value);}} 
+                        required
+                        placeholder="Enter Phone NO..."/>
+                    </div>
+
+                    <div className="relative w-full mb-3 mt-8">
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                        Email ID
+                      </label>
+                      <input type="text"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        name="Email ID" onChange={(event)=>{setemail(event.target.value);}} 
+                        required
+                        placeholder="Enter Email ID..."/>
+                    </div>
+ 
                     <box>
                     <div className="text-center mt-6">
                       {/* <button type="submit" onClick={add_fund} id="submitBtn"style={mystyle.submitBtn}> Add</button> */}
