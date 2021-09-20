@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const httpStatus = require('http-status');
 const routes = require('./routes')
 const {db} = require('./config/db.config')
-// const fileUpload = require('express-fileupload');
+const fileUpload = require('express-fileupload');
 
 // const { response } = require('express');
 // const path = require('path');
@@ -676,7 +676,6 @@ app.post('/add-booking',(req,res)=>{
         }
     })  
 });
-
 //RequestView
 app.get('/requestView',(req,res)=>{
     db.query("SELECT b.*, a.date, a.startTime, a.endTime FROM bookings b JOIN availability a ON b.availID= a.availID WHERE book_status='Pending'  ",(err,result,) => {
@@ -913,11 +912,12 @@ app.post('/addsms',(req,res)=>{
     const topic = req.body.topic;
     const description = req.body.description; 
     const uploadDate = req.body.uploadDate;
-    const expDate = req.body.expDate; 
+    const type = req.body.type;
+    // const phone = req.body.phone;  
     const status = req.body.status;  
 
-    db.query("INSERT INTO sms (topic,description,uploadDate,expDate) VALUES (?,?,?,?)",
-    [topic,description,uploadDate,expDate],(err,result)=>{
+    db.query("INSERT INTO sms (topic,description,uploadDate,type) VALUES (?,?,?,?)",
+    [topic,description,uploadDate,type],(err,result)=>{
 		if(err){
             console.log(err);
         } else{
@@ -926,6 +926,17 @@ app.post('/addsms',(req,res)=>{
     
     })
     
+});
+
+//dropdown 
+app.get('/smstype',(req,res)=>{
+    db.query("SELECT type FROM type1",(err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  }     
+    });
 });
 
 app.get('/smsview',(req,res)=>{
@@ -1084,6 +1095,7 @@ app.get('/activeForm',(req,res)=>{
         
     });
 });
+
 //download
 app.get('/download', function(req, res){
     const rowID = req.query.id
@@ -1278,126 +1290,6 @@ app.get('/get_past_projects', (req, res)=> {
 	})	
 });
 
-// app.post("/add-form", (req, res) => {
-//      if (!req.files) {
-//              res.send("No file upload")
-//         } else {
-            
-//             const formid = req.body.formid;
-//             const formTopic = req.body.formTopic;
-//             var file = req.files.image //'image' in Home.ejs form input name
-//             const UploadDate = req.body.UploadDate;
-//             const expDate = req.body.expDate;
-//             const description = req.body.description;
-//             const status = req.body.status;
-            
-//             //for image upload
-//        if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/gif") {
-//                 var imageName = file.name
-
-//                 console.log(imageName)
-//                 var uuidname = uuid.v1(); //used for unique file name
-//                 var imgsrc = 'http://127.0.0.1:3000/images/' + uuidname + file.name
-
-   	        // var insertData = "INSERT INTO formtemplate (formTopic,file,UploadDate,expDate,description) VALUES (?,?,?,?,?)"
-
-//             db.query(insertData, [imgsrc], (err, result) => {
-//                      if (err) throw err
-//                     file.mv('public/images/' + uuidname + file.name)
-//                     res.send("Data successfully save")
-//                })
-//            }
-//              // for any file like pdf,docs etc. upload
-//              else {
-//   	            var fileName = file.name;
-//                 console.log(fileName);
-//                 var uuidname = uuid.v1(); // for unique file name
-//                 var filesrc = 'http://127.0.0.1:3000/docs/' + uuidname + file.name
-
-//                 var insertData = "INSERT INTO formtemplate (formTopic,file,UploadDate,expDate,description) VALUES (?,?,?,?,?)"
-
-//             db.query(insertData, [filesrc], (err, result) => {
-//             if (err) throw err
-//                 file.mv('public/docs/' + uuidname + file.name)
-// 	                 res.send("Data successfully save")
-//                 })
-//            }
-//    	     }
-//  })
-
-
-
 app.listen(3001, () => {
 	console.log("running on port 3001");
 });
-
-
-// Upload Endpoint
-// app.post('/upload', (req, res) => {
-//     if (req.files === null) {
-//       return res.status(400).json({ msg: 'No file uploaded' });
-//     }
-  
-//     const file = req.files.file;
-  
-//     file.mv(`${__dirname}/client/src/assets/img/${file.name}`, err => {
-//       if (err) {    
-//         console.error(err);
-//         return res.status(500).send(err);
-//       }
-  
-//       res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
-//     });
-//   });
-
-//register villager
-app.post('/RegisterVillager',(req,res)=>{
-    console.log(req.body)
-    const villagerID = req.body.villagerID;
-    const villagerName = req.body.villagerName;
-    const villagerTel = req.body.villagerTel;
-    const villagerNIC = req.body.villagerNIC;
-    const villagerAdd = req.body.villagerAdd;
-    const villagerEmail = req.body.villagerEmail;
-
-    db.query("INSERT INTO villager (villagerID,villagerName,villagerTel,villagerNIC,villagerAdd,villagerEmail) VALUES (?,?,?,?,?,?)",
-    [villagerID,villagerName,villagerTel,villagerNIC,villagerAdd,villagerEmail],(err,result)=>{
-        if(err){
-            console.log(err);
-        } else{
-            res.send("values inserted");
-        }
-    })  
-});
-//view villagers
-app.get('/ViewVillager',(req,res)=>{
-    db.query("SELECT villagerID,villagerName,villagerTel,villagerNIC,villagerAdd,villagerEmail FROM villager",(err,result,) => {
-        if(err) {
-		console.log(err)
-	  } else {
-        res.send(result)
-	  }     
-    });
-});
-app.put('/add-app-booking', (req,res) => {
-    const villagerID = req.body.villagerID;
-    const villagerName = req.body.villagerName;
-    const villagerTel = req.body.villagerTel;
-    const villagerNIC = req.body.villagerNIC;
-    const villagerAdd = req.body.villagerAdd;
-    const villagerEmail = req.body.villagerEmail;
-    console.log("reach")
-    console.log(req.body)
-
-    db.query("UPDATE villager SET villagerID=?,villagerName=?,villagerTel=?,villagerNIC=?, villagerAdd=?,villagerEmail=? WHERE villagerID = ?; ", 
-    [villagerID,villagerName,villagerTel,villagerNIC,villagerAdd,villagerEmail, villagerID], 
-    (err, result) => {
-
-        if (err) {
-            console.log(err);
-        } else {
-            res.send(result);
-        }
-       }
-    );
-  });

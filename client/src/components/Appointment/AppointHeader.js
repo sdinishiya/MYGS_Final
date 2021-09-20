@@ -30,7 +30,8 @@ export default function Appoint() {
                         </div>
                         <div className="relative w-auto pl-4 flex-initial">
                             <div className={ "text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-red-500" }>
-                                <i className="far fa-chart-bar" ></i>
+                                <i class="fas fa-calendar-alt"></i>
+                                {/* <i className="fas fa-calender-alt" ></i> */}
                             </div>
                         </div>
                    </div>
@@ -54,7 +55,8 @@ export default function Appoint() {
                         </div>
                         <div className="relative w-auto pl-4 flex-initial">
                             <div className={ "text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-emerald-400" }>
-                                <i className="far fa-chart-bar" ></i>
+                                <i class="fas fa-envelope-open-text"></i>
+                                {/* <i className="far fa-chart-bar" ></i> */}
                             </div>
                         </div>
                    </div>
@@ -78,7 +80,8 @@ export default function Appoint() {
                         </div>
                         <div className="relative w-auto pl-4 flex-initial">
                             <div className={ "text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-orange-500" }>
-                                <i className="far fa-chart-bar" ></i>
+                               <i class="fas fa-clipboard-check"></i>
+                                {/* <i className="far fa-chart-bar" ></i> */}
                             </div>
                         </div>
                    </div>

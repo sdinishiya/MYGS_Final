@@ -75,6 +75,7 @@ export default function Profile() {
                 
                 <div className="flex flex-wrap">
                   <div className="w-full lg:w-10/12 px-4">
+                  <CardProfile />
                     <CardSettings />
                   </div>
                   {/* <div className="w-full lg:w-4/12 px-4">

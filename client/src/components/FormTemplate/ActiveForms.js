@@ -82,9 +82,9 @@ export default function ActiveForms() {
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                               Form ID Number   
                           </th>
-                          <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
+                          {/* <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                                 
-                          </th>
+                          </th> */}
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                               Form Topic    
                           </th>
@@ -130,13 +130,13 @@ export default function ActiveForms() {
                                 
                                 
                               </th>
-                              <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap">
+                              {/* <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap">
                                     <img
                                       src={require("assets/forms/pdf.png").default}
                                       alt="..."
                                       className="w-10 h-10 border-1 border-blueGray-50 "
                                     ></img>
-                              </td>
+                              </td> */}
                               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                               {form.formTopic}
                               </td>
