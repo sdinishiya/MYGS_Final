@@ -40,6 +40,21 @@ export default function AllmessageView() {
         });
       alert(" SMS Sent Successfully ");
     };
+
+     // remove
+     const [remove, setdecline] = useState("Removed");
+     const removesms = (smsID) => {
+       axios
+         .put("http://localhost:3001/decline-book", {
+           status: status,
+           smsID: smsID,
+         })
+ 
+         .then((response) => {
+           console.log(smsID);
+         });
+       alert(" SMS Removed ");
+     };
   return (
     <>
     
@@ -143,13 +158,31 @@ export default function AllmessageView() {
                               {(notice.status!="Sent")?
 
                                 <Link to="/MessageView">
+                                <button className="bg-emerald-350 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                      type="submit" 
+                                      onClick={() => sendSMS(notice.smsID)}>  {" "}         
+                                      Edit
+                                </button>
+                                </Link>  : ""
+                              }
+                              {(notice.status!="Sent")?
+                                <Link to="/MessageView">
                                 <button className="bg-emerald-400 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                       type="submit" 
                                       onClick={() => sendSMS(notice.smsID)}>  {" "}         
                                       Send
                                 </button>
                                 </Link>  : ""
-                              }
+                                }
+                                {(notice.status!="Sent")?
+                                <Link to="/MessageView">
+                                <button className="bg-red-500 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                      type="submit" 
+                                      onClick={() => removesms(notice.smsID)}>  {" "}  
+                                      Remove
+                                </button>
+                                </Link>  : ""
+                                }
                               </td> 
                               
                             </tr>

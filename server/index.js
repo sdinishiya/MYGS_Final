@@ -624,6 +624,15 @@ app.get('/userView',(req,res)=>{
         
     });
 });
+app.get('/appdetails',(req,res)=>{
+    db.query("SELECT * FROM availability",(err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  }     
+    });
+});
 
 //dropdown 
 app.get('/booktopics',(req,res)=>{
@@ -636,15 +645,6 @@ app.get('/booktopics',(req,res)=>{
     });
 });
 
-app.get('/appdetails',(req,res)=>{
-    db.query("SELECT * FROM availability",(err,result,) => {
-        if(err) {
-		console.log(err)
-	  } else {
-        res.send(result)
-	  }     
-    });
-});
 //userAdd
 app.post('/add-booking',(req,res)=>{
     const bookID = req.body.bookID;
@@ -898,7 +898,19 @@ app.put('/active-notice', (req,res) => {
     );
   });
 
-  //General Message
+//General Message
+//dropdown 
+app.get('/smstype',(req,res)=>{
+    db.query("SELECT type FROM type1",(err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  }     
+    });
+});
+
+//addSMS
 app.post('/addsms',(req,res)=>{
     console.log(req.body)
     const smsID = req.body.smsID;
@@ -921,16 +933,7 @@ app.post('/addsms',(req,res)=>{
     
 });
 
-//dropdown 
-app.get('/smstype',(req,res)=>{
-    db.query("SELECT type FROM type1",(err,result,) => {
-        if(err) {
-		console.log(err)
-	  } else {
-        res.send(result)
-	  }     
-    });
-});
+
 
 app.get('/smsview',(req,res)=>{
     db.query("SELECT  * FROM sms WHERE status = 'Sent' ORDER BY uploadDate ASC",(err,result,) => {

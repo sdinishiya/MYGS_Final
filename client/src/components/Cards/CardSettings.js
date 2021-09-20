@@ -84,14 +84,14 @@ export default function CardSettings() {
             {isUpdate ? (
                 <div>
                   <button
-                      className="bg-emerald-400  text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                      className="bg-emerald-400  text-white active:bg-emerald-400 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                       type="button"
                       onClick={handleUpdate}
                   >
                     Update
                   </button>
                   <button
-                      className="bg-red-500  text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                      className="bg-red-500  text-white active:bg-red-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                       type="button"
                       onClick={handleDisableUpdate}
                   >
@@ -100,7 +100,7 @@ export default function CardSettings() {
                 </div>
             ) : (
                 <button
-                    className="bg-emerald-400 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                    className="bg-emerald-400 text-white active:bg-emerald-400 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={handleEnableUpdate}
                 >

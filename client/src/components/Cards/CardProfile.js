@@ -72,7 +72,7 @@ export default function CardProfile() {
                 </div>
                 <div className="mr-4 p-3 text-center">
                   <button
-                      className="bg-emerald-400 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                      className="bg-emerald-400 text-white active:bg-emerald-400 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                       type="button"
                       onClick={() => setIsDialogOpen(true)}
                   >
