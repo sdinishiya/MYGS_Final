@@ -62,6 +62,8 @@ import ActiveForms from "../components/FormTemplate/ActiveForms";
 import UserFormView from "../components/FormTemplate/UserFormView";
 import Donate2 from "../components/Donation/donate2";
 import UpdateconstMaterial from "../components/Material/UpdateconstMaterial";
+import UpdateagriMaterial from "../components/Material/UpdateagriMaterial";
+import UpdateotherMaterial from "../components/Material/UpdateotherMaterial";
 import {NotificationController} from "../views/admin/Notification/controller/NotificationController";
 import {ComplaintsController} from "../views/admin/Complaints/controller/ComplaintsController";
 
@@ -161,6 +163,7 @@ const Routes = () => {
                 <AuthRoute path="/AddagriMaterial" component={AddagriMaterial}/>
                 <AuthRoute path="/SupplyagriMaterial" component={SupplyagriMaterial}/>
                 <AuthRoute path="/ViewSuppliedagriMaterial" component={ViewSupplyAgri}/>
+                <Route path="/UpdateagriMaterial/:id" component={UpdateagriMaterial}/>
 
                 {/* Other Material */}
                 <AuthRoute path="/OtherMaterial" component={OtherMaterial}/>
@@ -168,6 +171,7 @@ const Routes = () => {
                 <AuthRoute path="/AddotherMaterial" component={AddotherMaterial}/>
                 <AuthRoute path="/SupplyotherMaterial" component={SupplyotherMaterial}/>
                 <AuthRoute path="/ViewSuppliedotherMaterial" component={ViewSupplyOther}/>
+                <Route path="/UpdateotherMaterial/:id" component={UpdateotherMaterial}/>
 
                 {/* Users(Material) */}
                 <AuthRoute path ="/Users/Const" component={Const}/>

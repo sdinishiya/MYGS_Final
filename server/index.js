@@ -116,7 +116,7 @@ app.put('/constupdate/:id' , (req,res) => {
 
 app.get('/getconst/:id',(req,res)=>{
     var id=req.params.id;
-    db.query("SELECT CAST(c.addeddate AS DATE), c.description, c.quantity, n.materialname FROM newconstmaterial n JOIN constsmaterial c ON n.materialid = c.materialid where c.materialid = ? ",
+    db.query("SELECT c.addeddate, c.description, c.quantity, n.materialname FROM newconstmaterial n JOIN constsmaterial c ON n.materialid = c.materialid where c.materialid = ? ",
     [id],
     (err,result,) => {
         if(err) {
@@ -321,7 +321,39 @@ app.get('/agrisupply',(req,res)=>{
     });
 });
 
+app.put('/agriupdate/:id' , (req,res) => {
+    var id=req.params.id;
 
+    const addeddate = req.body.addeddate;
+    const materialname = req.body.materialname;
+    const description = req.body.description;
+    const quantity = req.body.quantity;
+
+    db.query("UPDATE agrimaterial, newagrimaterial SET agrimaterial.addeddate = ?, newagrimaterial.materialname = ?, agrimaterial.description = ?, agrimaterial.quantity = ? WHERE agrimaterial.materialid = newagrimaterial.materialid AND agrimaterial.materialid = ?" ,
+    [addeddate,materialname,description,quantity,id],(err,result)=>{ 
+        if(err){
+            console.log(err);
+        } else{
+            res.send("values inserted");
+        }
+    
+    })
+
+})
+
+app.get('/getagri/:id',(req,res)=>{
+    var id=req.params.id;
+    db.query("SELECT c.addeddate, c.description, c.quantity, n.materialname FROM newagrimaterial n JOIN agrimaterial c ON n.materialid = c.materialid where c.materialid = ? ",
+    [id],
+    (err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  } 
+        
+    });
+});
 
 // othermaterial
 app.post('/other',(req,res)=>{
@@ -412,6 +444,40 @@ app.post('/othersupply',(req,res)=>{
 
 app.get('/othersupply',(req,res)=>{
     db.query("SELECT c.*,n.materialname FROM newothermaterial n JOIN supplyotheraterial c ON n.materialid = c.materialid order by supplieddate ASC",(err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  } 
+        
+    });
+});
+
+app.put('/otherupdate/:id' , (req,res) => {
+    var id=req.params.id;
+
+    const addeddate = req.body.addeddate;
+    const materialname = req.body.materialname;
+    const description = req.body.description;
+    const quantity = req.body.quantity;
+
+    db.query("UPDATE othermaterial, newothermaterial SET othermaterial.addeddate = ?, newothermaterial.materialname = ?, othermaterial.description = ?, othermaterial.quantity = ? WHERE othermaterial.materialid = newothermaterial.materialid AND othermaterial.materialid = ?" ,
+    [addeddate,materialname,description,quantity,id],(err,result)=>{ 
+        if(err){
+            console.log(err);
+        } else{
+            res.send("values inserted");
+        }
+    
+    })
+
+})
+
+app.get('/getother/:id',(req,res)=>{
+    var id=req.params.id;
+    db.query("SELECT c.addeddate, c.description, c.quantity, n.materialname FROM newothermaterial n JOIN othermaterial c ON n.materialid = c.materialid where c.materialid = ? ",
+    [id],
+    (err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {

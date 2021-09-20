@@ -9,6 +9,7 @@ import {SnackbarProvider} from "notistack";
 import Routes from "./navigation/Routes";
 import {persistedStore, reduxPersistStore} from "./store/persistStore";
 
+import './i18';
 
 ReactDOM.render(
     <Provider store={reduxPersistStore}>
