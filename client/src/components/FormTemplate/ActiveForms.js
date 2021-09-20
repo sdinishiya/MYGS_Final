@@ -156,10 +156,10 @@ export default function ActiveForms() {
                                 <TableDropdown />
                               </td> */}
                               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                              <Link to="/EditNotice">
+                              <Link to={`/EditForm/${form.formID}`}>
                                   <button className="bg-emerald-400 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                         type="submit" 
-                                        >  {" "}         
+                                        onClick={() => (form.formID)}> {" "}         
                                         Edit
                                   </button>
                                 </Link> 
