@@ -51,36 +51,6 @@ export default function ViewDonation() {
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
               <div className="w-full lg:w-10/12 px-4">
-              {/* <Link to="/AddnewconstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          Add New Material
-                  </button> 
-                </Link>
-                <Link to="/AddconstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          Add Material
-                  </button> 
-                </Link>
-                <Link to="/ConstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          View Added Material
-                  </button> 
-                </Link>
-                <Link to="/SupplyconstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          Distrubute Material    
-                  </button>
-                </Link>
-                <Link to="/ViewSuppliedconstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          View Distrubuted Material
-                  </button> <br/><br/>
-                </Link> */}
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                     <div className="rounded-t mb-0 px-4 py-3 border-0">
                       <div className="flex flex-wrap items-center">

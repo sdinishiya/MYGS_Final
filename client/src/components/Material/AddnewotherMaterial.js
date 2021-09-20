@@ -53,25 +53,6 @@ export default function AddnewotherMaterial() {
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
               <div className="w-full lg:w-6/12 px-4">
-              {/* <Link to="/AddnewotherMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          Add New Material
-                  </button> 
-                </Link>
-                <Link to="/AddotherMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          Add Material
-                  </button> 
-                </Link>
-                <Link to="/OtherMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          View Added Material
-                  </button> <br/><br/>
-                </Link> */}
-               
                 <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-emerald-200">
                   <div className="flex-auto p-5 lg:p-10">
                     <h1 className="text-2xl font-semibold uppercase text-center justify-center">
@@ -91,7 +72,6 @@ export default function AddnewotherMaterial() {
 
                     <box>
                     <div className="text-center mt-6">
-                      {/* <button type="submit" onClick={add_fund} id="submitBtn"style={mystyle.submitBtn}> Add</button> */}
                       <button
                         className="bg-emerald-450 text-white active:bg-emerald-300 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                         type="submit"
@@ -111,18 +91,6 @@ export default function AddnewotherMaterial() {
                 </div>
               </div>
               <div className="w-full lg:w-6/12 px-4">
-              {/* <Link to="/SupplyotherMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          Distrubute Material    
-                  </button>
-                </Link>
-                <Link to="/ViewSuppliedotherMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          View Distrubuted Material
-                  </button> <br/><br/>
-                </Link> */}
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                   <div className="rounded-t mb-0 px-4 py-3 border-0">
                     <div className="flex flex-wrap items-center">
