@@ -197,12 +197,12 @@ app.post('/constsupply',(req,res)=>{
     console.log(req.body)
     const supplieddate = req.body.supplieddate;
     const materialid = req.body.materialid;
-    const materialname = req.body.materialname;
+    const name = req.body.name;
     const description = req.body.description;
     const quantity = req.body.quantity;
 
-    db.query("INSERT INTO supplyconstmaterial (supplieddate,materialid,description,quantity) VALUES (?,?,?,?)",
-    [supplieddate,materialid,description,quantity],(err,result)=>{ 
+    db.query("INSERT INTO supplyconstmaterial (supplieddate,materialid,name,description,quantity) VALUES (?,?,?,?,?)",
+    [supplieddate,materialid,name,description,quantity],(err,result)=>{ 
         if(err){
             console.log(err);
         } else{
@@ -294,12 +294,11 @@ app.post('/agrisupply',(req,res)=>{
     console.log(req.body)
     const supplieddate = req.body.supplieddate;
     const materialid = req.body.materialid;
-    const materialname = req.body.materialname;
     const name = req.body.name;
     const description = req.body.description;
     const quantity = req.body.quantity;
 
-    db.query("INSERT INTO supplyagrimaterial (supplieddate,materialid,name,description,quantity) VALUES (?,?,?,?)",
+    db.query("INSERT INTO supplyagrimaterial (supplieddate,materialid,name,description,quantity) VALUES (?,?,?,?,?)",
     [supplieddate,materialid,name,description,quantity],(err,result)=>{ 
         if(err){
             console.log(err);
@@ -426,12 +425,12 @@ app.post('/othersupply',(req,res)=>{
     console.log(req.body)
     const supplieddate = req.body.supplieddate;
     const materialid = req.body.materialid;
-    const materialname = req.body.materialname;
+    const name = req.body.name;
     const description = req.body.description;
     const quantity = req.body.quantity;
 
-    db.query("INSERT INTO supplyagrimaterial (supplieddate,materialid,description,quantity) VALUES (?,?,?,?)",
-    [supplieddate,materialid,description,quantity],(err,result)=>{ 
+    db.query("INSERT INTO supplyothermaterial (supplieddate,materialid,name,description,quantity) VALUES (?,?,?,?,?)",
+    [supplieddate,materialid,name,description,quantity],(err,result)=>{ 
         if(err){
             console.log(err);
         } else{
@@ -443,7 +442,7 @@ app.post('/othersupply',(req,res)=>{
 });
 
 app.get('/othersupply',(req,res)=>{
-    db.query("SELECT c.*,n.materialname FROM newothermaterial n JOIN supplyotheraterial c ON n.materialid = c.materialid order by supplieddate ASC",(err,result,) => {
+    db.query("SELECT c.*,n.materialname FROM newothermaterial n JOIN supplyothermaterial c ON n.materialid = c.materialid order by supplieddate ASC",(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
