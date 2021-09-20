@@ -45,7 +45,7 @@ export default function AllmessageView() {
      const [remove, setdecline] = useState("Removed");
      const removesms = (smsID) => {
        axios
-         .put("http://localhost:3001/decline-book", {
+         .put("http://localhost:3001/remove-sms", {
            status: status,
            smsID: smsID,
          })
@@ -118,9 +118,7 @@ export default function AllmessageView() {
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                                 
                           </th>
-                          <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                               
-                          </th>
+                          
                           </tr>
                         </thead>
                         <tbody>
