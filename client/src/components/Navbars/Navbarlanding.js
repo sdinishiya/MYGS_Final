@@ -6,8 +6,11 @@ import { Link } from "react-router-dom";
 
 import LogDropdown from "components/Dropdowns/Logdropdown.js";
 import {NAVIGATION_ROUTES} from "../../navigation/constant/NavigationRoutes";
+import { useTranslation } from "react-i18next";
 
 export default function Navbarloglanding(props) {
+  const {t,i18n}= useTranslation()
+  
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
@@ -54,7 +57,7 @@ export default function Navbarloglanding(props) {
               <li className="flex items-center">
               <Link
                  to={NAVIGATION_ROUTES.clientProfile} className={"bg-white text-blueGray-700 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"}>
-                   Profile
+                   {t("profile")}
              </Link>
               </li>
 {/*               

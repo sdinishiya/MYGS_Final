@@ -1,5 +1,5 @@
 {
-  
+   
     "welcome_message": "Welcome",
     "app_title": "MEET YOUR GS",
     "sub_title": "UDAPALATHA GRAMA NILADHARI WASAMA",
@@ -28,6 +28,33 @@
     "resource": "Resources",
     "resource_body": "In need of resource materials for your on-going projects or inventions? We are here to provide and facilitate your small scale businesses.  ",
 
+    "appointment": "Appointments",
+    "schedule_appointment": " Schedule appoitnments according to your convenience with your GS",
+    "make_appointment": "Make Appointmants",
+    "make_appointment_body": "Waiting in like to meet your GS could be frustrating and time consuming. Why not schedule your meeting with the GS online. This will help you save a lot of time.",
+    "click_make_appointment": "Click to Make Appointmants",
+
+    "donation": "Make donations and become a donor!",
+    "donation_make": "Interested in our projects and our community? Lend a helping hand for the small scale businesses and new inventions by making a generous donation.",
+    "click_donation_make": "Click to Make Donation",
+    "donate": "Donation",
+    "donate_body": "Interested in our projects and our community? Lend a helping hand for the small scale businesses and new inventions by making a generous donation.",
+    
+    "forum": "Forum Discussion",
+    "forum_body": "Join the discussions and be a part of the active community. Share your ideas and your thoughts with us.",
+    "forum_discussion": "Forum Discussion",
+    "forum_discussion_body": "Join the discussions and be a part of the active community. Share your ideas and your thoughts with us.",
+    "click_forum": "Click to Participate Forum Discussion",
+
+    "profile": "Profile",
+
+    "pages": "Select Pages",
+    "download_forms": "Download Forms",
+    "view_project_details": "View Project Details",
+    "view_Available_resources": "View Available Resources",
+    "make_appointments": "Make Appointments",
+    "make_donation": "Make Donations",
+    "take_part_forum": "Take Part in Forum Discussions",
     
 
     "lim": "Forms"

@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { createPopper } from "@popperjs/core";
+import { useTranslation } from "react-i18next";
 
 const LogDropdown = () => {
+  const {t,i18n}= useTranslation()
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
   const btnDropdownRef = React.createRef();
@@ -27,7 +29,7 @@ const LogDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        Select Pages
+        {t("pages")}
       </a>
       <div
         ref={popoverDropdownRef}
@@ -41,7 +43,7 @@ const LogDropdown = () => {
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }>
-          Download Forms
+          {t("download_forms")}
         </Link>
 
         <Link
@@ -49,7 +51,7 @@ const LogDropdown = () => {
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }>
-          View Project Details
+          {t("view_project_details")}
         </Link>
 
         <Link
@@ -57,7 +59,7 @@ const LogDropdown = () => {
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }>
-          View Available Resources
+           {t("view_Available_resources")}
         </Link>
 
         <Link
@@ -65,7 +67,7 @@ const LogDropdown = () => {
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }>
-          Make Appointments
+           {t("make_appointments")}
         </Link>
 
         <Link
@@ -73,7 +75,7 @@ const LogDropdown = () => {
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }>
-          Make Donations
+           {t("make_donation")}
         </Link>
 
         <Link
@@ -81,7 +83,7 @@ const LogDropdown = () => {
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }>
-          Take Part in Forum Discussions
+           {t("take_part_forum")}
         </Link>
       </div>
     </>

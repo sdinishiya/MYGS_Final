@@ -8,8 +8,10 @@ import axios from 'axios';
 
 import Navbarloglanding from "components/Navbars/Navbarlanding";
 import Footer from "components/Footers/Footer.js";
+import { useTranslation } from "react-i18next";
 
 export default function LogLanding() {
+  const {t,i18n}= useTranslation()
 
   const [viewList,setviewList]=useState([])
   useEffect(()=>{
@@ -45,10 +47,10 @@ export default function LogLanding() {
                   </h1>
                   <br/>
                   <h3 className="text-white font-semibold text-2xl">
-                     UDAPALATHA GRAMA NILADHARI WASAMA
+                    {t("sub_title")}  
                   </h3>
                   <p className="mt-4 text-lg text-blueGray-200">
-                      We are the Grama Sevakha Niladhari division of Udapalatha GS wasama under the Kandy Division Secretariate.
+                    {t("sub_title_h3")}
                       
                   </p>
                 </div>
@@ -120,11 +122,10 @@ export default function LogLanding() {
                   <i className="fas fa-file-download text-xl"></i>
                 </div>
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Download official forms online
+                  {t("download")}
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                  You can now download all your necessary documents and forms online without having to go to GS office. 
-                  Isn’t it time saving?
+                  {t("download_body")}
                 </p>
                 {/* <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
                   The kit comes with three pre-built pages to help you get
@@ -133,7 +134,7 @@ export default function LogLanding() {
                   JavaScript.
                 </p> */}
                  <Link to="/UserFormView" className="font-bold text-blueGray-700 mt-8">
-                  Click to Download Forms
+                  {t("click")}
                 </Link>
               </div>
 
@@ -157,11 +158,10 @@ export default function LogLanding() {
                       ></polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
-                      Forms
+                      {t("forms")}
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      You can now download all your necessary documents and forms online without having to go to GS office. 
-                      Isn’t it time saving?
+                     {t("form_body")}
                     </p>
                   </blockquote>
                 </Link>
@@ -210,11 +210,10 @@ export default function LogLanding() {
                         </polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
-                      Project Details
+                     {t("project")}
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      Take a look at the projects that are happening in your neighbourhood. 
-                      There is so much that we can do as a community to help each other out for the welfare of everyone.
+                      {t("project_details")}
                     </p>
                   </blockquote>
                 </Link>   
@@ -224,10 +223,9 @@ export default function LogLanding() {
                   {/* <div className="text-lightBlue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-lightBlue-300">
                     <i className="fas fa-rocket text-xl"></i>
                   </div> */}
-                  <h3 className="text-3xl font-semibold">Project Details</h3>
+                  <h3 className="text-3xl font-semibold">{t("project_name")}</h3>
                   <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                    Take a look at the projects that are happening in your neighbourhood. 
-                    There is so much that we can do as a community to help each other out for the welfare of everyone. 
+                    {t("project_name")} 
                   </p>
                   
                   <ul className="list-none mt-6">
@@ -240,7 +238,7 @@ export default function LogLanding() {
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Past Projects
+                            {t("past")}
                           </h4>
                         </div>
                       </Link>
@@ -254,7 +252,7 @@ export default function LogLanding() {
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Current projects
+                           {t("current")}
                           </h4>
                         </div>
                       </Link>
@@ -268,7 +266,7 @@ export default function LogLanding() {
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Projects Planned in the Future
+                            {t("future")}
                           </h4>
                         </div>
                       </Link>
@@ -288,14 +286,13 @@ export default function LogLanding() {
                   <i className="fas fa-file-download text-xl"></i>
                 </div> */}
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Resource and material Distribution details
+                  {t("resource_details")}
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                  In need of resource materials for your on-going projects or inventions? 
-                  We are here to provide and facilitate your small scale businesses.
+                   {t("resource_details_body")}
                 </p>
                 <Link to="/Pages/Resourcepage" className="font-bold text-blueGray-700 mt-8">
-                  Click to View & Request Resources
+                  {t("click_resource")}
                 </Link>
               </div>
 
@@ -319,11 +316,10 @@ export default function LogLanding() {
                         </polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
-                      Resources
+                     {t("resource")}
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      In need of resource materials for your on-going projects or inventions? 
-                      We are here to provide and facilitate your small scale businesses.  
+                      {t("resource_body")}
                     </p>
                   </blockquote>
                 </Link> 
@@ -375,10 +371,10 @@ export default function LogLanding() {
                       ></polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
-                      Appointments
+                      {t("appointment")}
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      Schedule appoitnments according to your convenience with your GS
+                      {t("schedule_appointment")}
                     </p>
                   </blockquote>
               </Link>   
@@ -388,13 +384,12 @@ export default function LogLanding() {
                   {/* <div className="text-lightBlue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-lightBlue-300">
                     <i className="fas fa-rocket text-xl"></i>
                   </div> */}
-                  <h3 className="text-3xl font-semibold">Make Appointmants</h3>
+                  <h3 className="text-3xl font-semibold">{t("make_appointment")}</h3>
                   <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                    Waiting in like to meet your GS could be frustrating and time consuming. 
-                    Why not schedule your meeting with the GS online. This will help you save a lot of time. 
+                    {t("make_appointment_body")} 
                   </p>
                   <Link to="/Pages/Appointmentpage" className="font-bold text-blueGray-700 mt-8">
-                      Click to Make Appointmants
+                    {t("click_make_appointment")}
                   </Link>
                 </div>
               </div>
@@ -410,14 +405,13 @@ export default function LogLanding() {
                   <i className="fas fa-file-download text-xl"></i>
                 </div> */}
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Make donations and become a donor!
+                  {t("donation")}
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                  Interested in our projects and our community? 
-                  Lend a helping hand for the small scale businesses and new inventions by making a generous donation.  
+                  {t("donation_make")}
                 </p>
                 <Link to="/Pages/Donationpage" className="font-bold text-blueGray-700 mt-8">
-                  Click to Make Donation
+                  {t("click_donation_make")}
                 </Link>
               </div>
 
@@ -442,11 +436,10 @@ export default function LogLanding() {
                       ></polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
-                      Donation
+                      {t("donate")}
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      Interested in our projects and our community? 
-                      Lend a helping hand for the small scale businesses and new inventions by making a generous donation. 
+                      {t("donate_body")}
                     </p>
                   </blockquote>
               </Link> 
@@ -495,10 +488,10 @@ export default function LogLanding() {
                       ></polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
-                      Forum Discussion
+                      {t("forum")}
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      Join the discussions and be a part of the active community. Share your ideas and your thoughts with us. 
+                      {t("forum_body")}
                     </p>
                   </blockquote>
               </Link>   
@@ -508,12 +501,12 @@ export default function LogLanding() {
                   {/* <div className="text-lightBlue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-lightBlue-300">
                     <i className="fas fa-rocket text-xl"></i>
                   </div> */}
-                  <h3 className="text-3xl font-semibold">Forum Discussion</h3>
+                  <h3 className="text-3xl font-semibold">{t("forum_discussion")}</h3>
                   <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                    Join the discussions and be a part of the active community. Share your ideas and your thoughts with us.  
+                   {t("forum_discussion_body")} 
                   </p>
                   <Link to="/Pages/Forumpage" className="font-bold text-blueGray-700 mt-8">
-                  Click to Participate Forum Discussion
+                   {t("click_forum")}
                 </Link>
                 </div>
               </div>
