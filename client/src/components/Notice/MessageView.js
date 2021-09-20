@@ -93,7 +93,7 @@ export default function MessageView() {
                               Date Uploaded  
                           </th>
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                              Deadline Date  
+                              Villager Group 
                           </th>
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                                
@@ -127,7 +127,7 @@ export default function MessageView() {
                                   {year + month + day}
                               </td>
                               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                  {year1 + month1 + day1}
+                               {notice.type}
                               </td>
                               
                               

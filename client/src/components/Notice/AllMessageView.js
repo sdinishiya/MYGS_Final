@@ -25,6 +25,7 @@ export default function AllmessageView() {
     })
   },[])
 
+
     // activate
     const [status, setstatus] = useState("Sent");
     const sendSMS = (smsID) => {
@@ -37,7 +38,7 @@ export default function AllmessageView() {
         .then((response) => {
           console.log(smsID);
         });
-      alert(" SMS Sent ");
+      alert(" SMS Sent Successfully ");
     };
   return (
     <>
@@ -94,7 +95,7 @@ export default function AllmessageView() {
                               Date Uploaded  
                           </th>
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                              Expiry Date  
+                              Villager Group 
                           </th>
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                               Status  
@@ -133,7 +134,7 @@ export default function AllmessageView() {
                                   {year + month + day}
                               </td>
                               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                  {year1 + month1 + day1}
+                                  {notice.type}
                               </td>
                               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                   {notice.status}

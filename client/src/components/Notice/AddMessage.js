@@ -1,7 +1,10 @@
-import React from "react";
-import { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
+
+import { useParams } from "react-router-dom";
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
 
 // components
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
@@ -11,15 +14,24 @@ import FooterAdmin from "components/Footers/FooterAdmin.js";
 
 
 export default function AddMessage() {
+
+  const [gettype,setgettype] = useState ([])
+
     const [smsID,setID] = useState("");
     const [topic,setTopic] = useState("");
     const [description,setDescription] = useState("");
     const [uploadDate,setUploadDate] = useState("");
     const [expDate,setExpDate] = useState("");
+    const [phone,setphone] = useState("");
+    const [type,settype] = useState("");
     const [status,setStatus] = useState("");
     const history  = useHistory();
 
     const messageadd = ()=>{
+
+      var msg= topic+' '+description+' '+uploadDate+'';
+      axios.get(`https://www.textit.biz/sendmsg?id=94711655166&pw=9411&to=${phone}&text=${msg}`);
+      console.log(`https://www.textit.biz/sendmsg?id=94711655166&pw=9411&to=${phone}&text=${msg}`)
       console.log(smsID);
 
       const d1 = new Date(uploadDate);
@@ -34,6 +46,7 @@ export default function AddMessage() {
         description:description,
         uploadDate: uploadDate,
         expDate:expDate,
+        phone:phone,
         status:status,
 
         }).then(()=>{
@@ -44,6 +57,27 @@ export default function AddMessage() {
          alert("Added successfully ");
         history.push("/MessageView");
     };
+
+  //dropdown
+  useEffect(() => {
+    const fetchData = async () => {
+        const response = await axios.get('http://localhost:3001/smstype', {
+            
+        });
+        setgettype(response.data);
+        console.log(response.data);
+    };
+    
+    fetchData();
+}, []);
+
+const mystyle = {
+    
+  formControl: {
+    minWidth: '454px',
+  },
+};
+
   return (
     <>
     
@@ -90,14 +124,14 @@ export default function AddMessage() {
                     </div>
                     <div className="relative w-full mb-3 mt-8">
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                        Date Uploaded
+                        Date 
                       </label>
                       <input type="date"
                         name="uploadDate" onChange={(event)=>{setUploadDate(event.target.value);}} 
                         required
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"/>
                     </div>
-                    <div className="relative w-full mb-3 mt-8">
+                    {/* <div className="relative w-full mb-3 mt-8">
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                         Deadline Date
                       </label>
@@ -105,6 +139,36 @@ export default function AddMessage() {
                         name="expDate" onChange={(event)=>{setExpDate(event.target.value);}} 
                         required
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"/>
+                    </div> */}
+                    {/* <div className="relative w-full mb-3 mt-8">
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                        Phone Number
+                      </label>
+                      <input type="int"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        name="phone" onChange={(event)=>{setphone(event.target.value);}} 
+                        required
+                        placeholder="Enter Phone No..."/>
+                    </div> */}
+                    <div className="relative w-full mb-3 mt-8">
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                        Select Type
+                      </label>
+
+                      <FormControl className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" >
+                           <Select
+                               native
+                               onChange={(event) => {settype(event.target.value); }}
+                               style={mystyle.search} >
+                                    
+                               <option aria-label="None" value="" />
+                               {gettype.map((record) => (
+                                  //  <option Value={record.ID}>{record.type}</option>
+                                   <option Value={record.ID}>{record.type}</option>
+                               ))}
+
+                           </Select>
+                       </FormControl><br /> 
                     </div>
 
                     <box>

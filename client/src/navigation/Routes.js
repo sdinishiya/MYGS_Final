@@ -4,6 +4,7 @@ import Auth from "../layouts/Auth";
 import Landing from "../views/Landing";
 import LogLanding from "../views/Loglanding";
 import Profile from "../views/Profile";
+
 import ViewScheduled from "../components/Appointment/ViewScheduled";
 import Schedule from "../components/Appointment/schedule";
 import ViewRequests from "../components/Appointment/ViewRequests";
@@ -105,7 +106,7 @@ const Routes = () => {
                 <AuthRoute path="/ViewRequests"  component={ViewRequests} />
                 <AuthRoute path="/ViewConfirmed"  component={ViewConfirmed} />
                 <AuthRoute path="/UserView"  component={UserView} />
-                <AuthRoute path="/UserBooking"  component={UserBooking} />
+                <AuthRoute path="/UserBooking/:availID"  component={UserBooking} />
 
                 {/* FormTemplate */}
                 <Route path="/AddForms"  component={AddForm} />
