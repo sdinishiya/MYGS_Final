@@ -68,6 +68,8 @@ import {NotificationController} from "../views/admin/Notification/controller/Not
 import {ComplaintsController} from "../views/admin/Complaints/controller/ComplaintsController";
 import EditNotice from "../components/Notice/EditNotice";
 import EditForm from "../components/FormTemplate/EditForm";
+import EditMessage from "../components/Notice/EditMessage";
+import EditSchedule from "../components/Appointment/EditSchedule";
 
 // Projects
 import PresentProject from "components/Projects/PresentProjects";
@@ -111,6 +113,7 @@ const Routes = () => {
                 <AuthRoute path="/ViewConfirmed"  component={ViewConfirmed} />
                 <AuthRoute path="/UserView"  component={UserView} />
                 <AuthRoute path="/UserBooking/:availID"  component={UserBooking} />
+                <Route path="/EditSchedule/:id"  component={EditSchedule} />
 
                 {/* FormTemplate */}
                 <Route path="/AddForms"  component={AddForm} />
@@ -127,6 +130,7 @@ const Routes = () => {
                 <AuthRoute path="/AddMessage"  component={AddMessage} />
                 <AuthRoute path="/MessageView"  component={MessageView} />
                 <AuthRoute path="/AllMessageView"  component={AllMessageView} />
+                <Route path="/EditMessage/:id" component={EditMessage}/>
 
                 {/* FINANCE */}
                 {/* Petty Cash */}
