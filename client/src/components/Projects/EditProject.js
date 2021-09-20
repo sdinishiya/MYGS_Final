@@ -98,7 +98,7 @@ export default function EditProjects() {
           // handle success
           console.log(response.data.response);
           alert("Updated Successfully!!!");
-          history.push('/projects/grids/PresentProjects/admin');
+          history.push('/EditProject/PresentProjects');
       })
       .catch(function (error) {
           // handle error

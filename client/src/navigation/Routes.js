@@ -153,7 +153,7 @@ const Routes = () => {
                 <AuthRoute path="/AddconstMaterial" component={AddconstMaterial}/>
                 <AuthRoute path="/SupplyconstMaterial" component={SupplyconstMaterial}/>
                 <AuthRoute path="/ViewSuppliedconstMaterial" component={ViewSupplyConst}/>
-                <Route path="/UpdateconstMaterial/:materialid" component={UpdateconstMaterial}/>
+                <Route path="/UpdateconstMaterial/:id" component={UpdateconstMaterial}/>
 
                 {/* Agri Material */}
                 <AuthRoute path="/AgriMaterial" component={AgriMaterial}/>

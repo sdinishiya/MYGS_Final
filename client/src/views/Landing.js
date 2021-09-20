@@ -11,7 +11,7 @@ import Footer from "components/Footers/Footer.js";
 import { useTranslation } from "react-i18next";
 
 export default function Landing() {
-  const {t,i18}= useTranslation()
+  const {t,i18n}= useTranslation()
 
   const [viewList,setviewList]=useState([])
   useEffect(()=>{

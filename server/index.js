@@ -89,15 +89,16 @@ app.get('/materialname', (req, res) => {
     })
 })
 
-app.put('/constupdate' , (req,res) => {
+app.put('/constupdate/:id' , (req,res) => {
+    var id=req.params.id;
+
     const addeddate = req.body.addeddate;
-    const materialid = req.body.materialid;
     const materialname = req.body.materialname;
     const description = req.body.description;
     const quantity = req.body.quantity;
 
-    db.query("UPDATE constsmaterial SET addeddate = ? , materialid = ? , materialname = ?, description = ?, quantity = ? WHERE materialid= ?" ,
-    [addeddate,materialid,materialname,description,quantity],(err,result)=>{ 
+    db.query("UPDATE constsmaterial, newconstmaterial SET constsmaterial.addeddate = ?, newconstmaterial.materialname = ?, constsmaterial.description = ?, constsmaterial.quantity = ? WHERE constsmaterial.materialid = newconstmaterial.materialid AND constsmaterial.materialid = ?" ,
+    [addeddate,materialname,description,quantity,id],(err,result)=>{ 
         if(err){
             console.log(err);
         } else{
@@ -108,8 +109,11 @@ app.put('/constupdate' , (req,res) => {
 
 })
 
-app.get('/getconst',(req,res)=>{
-    db.query("SELECT c.*,n.materialname FROM newconstmaterial n JOIN constsmaterial c ON n.materialid = c.materialid ", [req.query.aa],(err,result,) => {
+app.get('/getconst/:id',(req,res)=>{
+    var id=req.params.id;
+    db.query("SELECT CAST(c.addeddate AS DATE), c.description, c.quantity, n.materialname FROM newconstmaterial n JOIN constsmaterial c ON n.materialid = c.materialid where c.materialid = ? ",
+    [id],
+    (err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
@@ -136,25 +140,25 @@ app.delete("/delete/:id",(req,res)=>{
       if(err) console.log(err);
     });
   });
-  app.put("/update/:id",(req,res)=>{
-    const id = req.params.id;
-    const name = req.params.name;
-    const sqlUpdate="UPDATE constsmaterial SET name=? WHERE id=?";
+//   app.put("/update/:id",(req,res)=>{
+//     const id = req.params.id;
+//     const name = req.params.name;
+//     const sqlUpdate="UPDATE constsmaterial SET name=? WHERE id=?";
   
-    db.query(sqlUpdate,[name,id],(err,result)=>{
-      if(err) console.log(err);
-    })
-  });
-  app.put('/updateMaterial/:id', (req,res) => {
-    console.log(id);
-    //const id = req.body.id;
-    const name = req.body.name;
-    const sqlUpdate = "UPDATE SET constsmaterial name=? WHERE id=?";
+//     db.query(sqlUpdate,[name,id],(err,result)=>{
+//       if(err) console.log(err);
+//     })
+//   });
+//   app.put('/updateMaterial/:id', (req,res) => {
+//     console.log(id);
+//     //const id = req.body.id;
+//     const name = req.body.name;
+//     const sqlUpdate = "UPDATE SET constsmaterial name=? WHERE id=?";
   
-    db.query(sqlUpdate,[name,id],(err,result)=>{
-      if(err) console.log(err);
-    })
-  });
+//     db.query(sqlUpdate,[name,id],(err,result)=>{
+//       if(err) console.log(err);
+//     })
+//   });
 
 app.post('/createnew',(req,res)=>{
     console.log(req.body)
@@ -473,7 +477,7 @@ app.post('/add_donation', (req, res)=> {
 			res.send(200, { response: 'Donation done Sucessfully!!' });
 		}
 	})	
-});
+});  
 
 app.get('/donationview',(req,res)=>{
     db.query("SELECT * FROM donations order by donation_id ASC" ,(err,result,) => {

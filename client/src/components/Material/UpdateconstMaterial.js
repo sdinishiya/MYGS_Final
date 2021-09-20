@@ -32,36 +32,33 @@ export default function UpdateconstMaterial() {
     const [type, settype] = useState('');
     let {id}=useParams();
 
-    const handleChange = (event) => {
-      settype(event.target.value);
-    };
+    // const handleChange = (event) => {
+    //   settype(event.target.value);
+    // };
   
-    const handleClose = () => {
-      setOpen(false);
-    };
+    // const handleClose = () => {
+    //   setOpen(false);
+    // };
   
-    const handleOpen = () => {
-      setOpen(true);
-    };
+    // const handleOpen = () => {
+    //   console.log(addeddate);
+    // };
 
-    const [getmaterial,setgetmaterial] = useState ([])
     const [addeddate,setaddeddate] = useState("");
-    const [materialid,setmaterialid] = useState("");
     const [materialname,setmaterialname] = useState("");
     const [description,setdescription] = useState("");
     const [quantity,setquantity] = useState("");
     const history = useHistory();
 
   useEffect(() => {
-    axios.get('http://localhost:3001/getconst/${id}')
+    axios.get(`http://localhost:3001/getconst/${id}`)
     .then(function (response) {
       
-      setgetmaterial(response.data[0]);
         setaddeddate(response.data[0].addeddate);
         setmaterialname(response.data[0].materialname);
         setdescription(response.data[0].description);
         setquantity(response.data[0].quantity);
-        console.log(response.data);
+        console.log(response.data[0].addeddate);
 
     
     })
@@ -72,11 +69,11 @@ export default function UpdateconstMaterial() {
 
 function submit(event){
   event.preventDefault();
-   axios.put('http://localhost:3001/constupdate/${id}',{
-    addeddate:addeddate,
-    materialname:materialname,
-    description:description,
-    quantity:quantity,
+   axios.put(`http://localhost:3001/constupdate/${id}`,{
+    "addeddate":addeddate,
+    "materialname":materialname,
+    "description":description,
+    "quantity":quantity,
      
     })
     .then(function(response) {
@@ -95,6 +92,16 @@ function submit(event){
 
     });  
 }
+
+
+  // Date convertor
+// const dt = new Date(addeddate);
+// const year = dt.getFullYear() + '/';
+// const month = ('0' + (dt.getMonth() + 1 )).slice(-2) + '/';
+// const day = ('0' + dt.getDate()).slice(-2);
+       
+
+
 
 
   return (
@@ -159,12 +166,25 @@ function submit(event){
                       </label>
                       <input type="date"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        defaultValue={addeddate} 
                         name="Date" onChange={(event)=>{setaddeddate(event.target.value);}} 
                         required
                         placeholder="Date"/>
                     </div>
 
                     <div className="relative w-full mb-3 mt-8">
+                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                        Material Name
+                      </label>
+                      <input type="text"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        value={materialname} 
+                        name="Material Name" onChange={(event)=>{setmaterialname(event.target.value);}} 
+                        required
+                        placeholder="Material Name..."/>
+                    </div>
+
+                    {/* <div className="relative w-full mb-3 mt-8">
                     <labe className="block uppercase text-blueGray-600 text-xs font-bold mb-2"> Material Name </labe> 
                    
                     <FormControl className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" >
@@ -176,20 +196,21 @@ function submit(event){
                                 <option Value={getmaterial.materialname}>{getmaterial.materialname}</option>
 
                                                
-                                {/* <option aria-label="None" value="" /> */}
-                                {/* {getmaterial.map((record) => (
+                                <option aria-label="None" value="" />
+                                {getmaterial.map((record) => (
                                     <option Value={record.materialid}>{record.materialname}</option>
-                                ))} */}
+                                ))}
                             </Select>
                         </FormControl><br /> 
                       
-                    </div>
+                    </div> */}
 
                     <div className="relative w-full mb-3 mt-8">
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                         Description
                       </label>
                       <input type="text"
+                        value={description}
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         name="Description" onChange={(event)=>{setdescription(event.target.value);}} 
                         required
@@ -202,6 +223,7 @@ function submit(event){
                       </label>
                       <input type="text"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        value={quantity}
                         name="Quantity" onChange={(event)=>{setquantity(event.target.value);}} 
                         required
                         placeholder="Enter Quantity..."/>
