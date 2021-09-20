@@ -756,6 +756,41 @@ app.get('/viewSchedule',(req,res)=>{
     });
 });
 
+app.put('/availabilityupdate/:id' , (req,res) => {
+    var id=req.params.id;
+
+    const gsname = req.body.gsname;
+    const date = req.body.date;
+    const startTime = req.body.startTime;
+    const endTime = req.body.endTime;
+    const description = req.body.description;
+
+    db.query("UPDATE sms SET gsname=?, date=?, startTime=?, endTime=?, description=? where availID = ?" ,
+    [gsname,date,startTime,endTime,description,id],(err,result)=>{ 
+        if(err){
+            console.log(err);
+        } else{
+            res.send("values inserted");
+        }
+    
+    })
+
+})
+
+app.get('/getavailability/:id',(req,res)=>{
+    var id=req.params.id;
+    db.query("SELECT gsname,date,startTime,endTime,description FROM availability where availID = ? ",
+    [id],
+    (err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  } 
+        
+    });
+});
+
 //userview
 app.get('/userView',(req,res)=>{
     db.query("SELECT *, TIMEDIFF( endTime, startTime) AS Duration FROM availability ",(err,result,) => {
@@ -1145,6 +1180,40 @@ app.get('/smsview',(req,res)=>{
 });
 app.get('/allsmsview',(req,res)=>{
     db.query("SELECT * FROM sms ORDER BY uploadDate ASC",(err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  } 
+        
+    });
+});
+
+app.put('/smsupdate/:id' , (req,res) => {
+    var id=req.params.id;
+
+    const topic = req.body.topic;
+    const description = req.body.description;
+    const uploadDate = req.body.uploadDate;
+    const type = req.body.type;
+
+    db.query("UPDATE sms SET topic=?, description=?, uploadDate=?, type=? where smsID = ?" ,
+    [topic,description,uploadDate,type,id],(err,result)=>{ 
+        if(err){
+            console.log(err);
+        } else{
+            res.send("values inserted");
+        }
+    
+    })
+
+})
+
+app.get('/getsms/:id',(req,res)=>{
+    var id=req.params.id;
+    db.query("SELECT topic,description,uploadDate,type FROM sms where smsID = ? ",
+    [id],
+    (err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
