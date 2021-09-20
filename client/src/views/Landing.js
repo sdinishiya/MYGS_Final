@@ -51,7 +51,7 @@ export default function Landing() {
                     {t("sub_title")}
                   </h3>
                   <p className="mt-4 text-lg text-blueGray-200">
-                      We are the Grama Sevakha Niladhari division of Udapalatha GS wasama under the Kandy Division Secretariate.
+                  {t("sub_title_h3")}
                   </p>
                 </div>
               </div>
@@ -124,11 +124,10 @@ export default function Landing() {
                   <i className="fas fa-file-download text-xl"></i>
                 </div>
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Download official forms online
+                  {t("download")}
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                  You can now download all your necessary documents and forms online without having to go to GS office. 
-                  Isn’t it time saving?
+                  {t("download_body")}
                 </p>
                 {/* <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
                   The kit comes with three pre-built pages to help you get
@@ -137,7 +136,7 @@ export default function Landing() {
                   JavaScript.
                 </p> */}
                 <Link to="/Pages/Formpage" className="font-bold text-blueGray-700 mt-8">
-                  Click to Download Forms
+                  {t("click")}
                 </Link>
               </div>
 
@@ -161,11 +160,10 @@ export default function Landing() {
                       ></polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
-                      Forms
+                      {t("forms")}
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      You can now download all your necessary documents and forms online without having to go to GS office. 
-                      Isn’t it time saving?
+                      {t("form_body")}
                     </p>
                   </blockquote>
                 </div>
@@ -214,11 +212,10 @@ export default function Landing() {
                         </polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
-                      Project Details
+                       {t("project")}
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      Take a look at the projects that are happening in your neighbourhood. 
-                      There is so much that we can do as a community to help each other out for the welfare of everyone.
+                      {t("project_details")}
                     </p>
                   </blockquote>
                 </Link>   
@@ -228,10 +225,9 @@ export default function Landing() {
                   {/* <div className="text-lightBlue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-lightBlue-300">
                     <i className="fas fa-rocket text-xl"></i>
                   </div> */}
-                  <h3 className="text-3xl font-semibold">Project Details</h3>
+                  <h3 className="text-3xl font-semibold">{t("project_name")}</h3>
                   <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                    Take a look at the projects that are happening in your neighbourhood. 
-                    There is so much that we can do as a community to help each other out for the welfare of everyone. 
+                    {t("project_name")} 
                   </p>
 
                   <ul className="list-none mt-6">
@@ -244,7 +240,7 @@ export default function Landing() {
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Past Projects
+                            {t("past")}
                           </h4>
                         </div>
                       </Link>
@@ -258,7 +254,7 @@ export default function Landing() {
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Current projects
+                           {t("current")}
                           </h4>
                         </div>
                       </Link>
@@ -272,7 +268,7 @@ export default function Landing() {
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Projects Planned in the Future
+                            {t("future")}
                           </h4>
                         </div>
                       </Link>
@@ -292,14 +288,13 @@ export default function Landing() {
                   <i className="fas fa-file-download text-xl"></i>
                 </div> */}
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Resource and material Distribution details
+                   {t("resource_details")}
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                  In need of resource materials for your on-going projects or inventions? 
-                  We are here to provide and facilitate your small scale businesses.
+                    {t("resource_details_body")}
                 </p>
                 <Link to="/Pages/Resoursepage" className="font-bold text-blueGray-700 mt-8">
-                  Click to View & Request Resources
+                    {t("click_resource")}
                 </Link>
               </div>
 
@@ -323,11 +318,10 @@ export default function Landing() {
                         </polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
-                      Resources
+                      {t("resource")}
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      In need of resource materials for your on-going projects or inventions? 
-                      We are here to provide and facilitate your small scale businesses.  
+                      {t("resource_body")}
                     </p>
                   </blockquote>
                 </Link> 
