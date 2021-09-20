@@ -1,32 +1,37 @@
-const express = require("express");
+const express = require("express"),http= require("http");
 const mysql = require("mysql");
 const cors = require("cors");
 const bcrypt = require('bcrypt');
 const httpStatus = require('http-status');
 const routes = require('./routes')
 const {db} = require('./config/db.config')
+
 const fileUpload = require('express-fileupload');
+const bodyParser =  require('body-parser')
+const path = require('path');
 
 // const { response } = require('express');
 // const path = require('path');
 // const { name } = require('ejs');
-const bodyParser =  require('body-parser')
 // const ejs = require ('ejs');
 // const socketio = require('socket.io')
 // const { response } = require('express');
 // const app = express();
-// const path = require('path');
 // const { name } = require('ejs');
 // const bodyParser =  require('body-parser')
 // app.use(express.json());
 // app.use(cors());
+
 const saltRounds = 10;
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(routes);
-// app.use(fileUpload());
+
+app.use(fileUpload({useTempFiles:true,tempFileDir:"tmp"}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 
 //var req = require("./node_modules/req/node_modules/request");
 // const db = mysql.createConnection({
@@ -1016,6 +1021,8 @@ app.put('/update-forum',(req,res)=>{
 
 //formTemplates
 app.post('/add-form' , (req , res)=>{
+
+    console.log(req.body);
     const formdata = JSON.parse(req.body.data);
     const formid = formdata.formid;
     const formTopic = formdata.formTopic;
@@ -1037,6 +1044,7 @@ let uploadPath;
   }
 
   console.log(__dirname);
+
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
   const randomfilenum = Math.floor(Math.random()*1000000);
   sampleFile = req.files.file;
