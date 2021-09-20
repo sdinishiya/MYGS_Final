@@ -66,6 +66,8 @@ import UpdateagriMaterial from "../components/Material/UpdateagriMaterial";
 import UpdateotherMaterial from "../components/Material/UpdateotherMaterial";
 import {NotificationController} from "../views/admin/Notification/controller/NotificationController";
 import {ComplaintsController} from "../views/admin/Complaints/controller/ComplaintsController";
+import EditNotice from "../components/Notice/EditNotice";
+import EditForm from "../components/FormTemplate/EditForm";
 
 // Projects
 import PresentProject from "components/Projects/PresentProjects";
@@ -115,11 +117,12 @@ const Routes = () => {
                 <Route path="/FormTemplateView"  component={FormTemplateView} />
                 <Route path="/ActiveForms"  component={ActiveForms} />
                 <Route path="/UserFormView"  component={UserFormView} />
-
+                <Route path="/EditForm/:id"  component={EditForm} />
                 {/* Notices */}
                 <AuthRoute path="/AddNotice"  component={AddNotice} />
                 <AuthRoute path="/noticeView"  component={NoticeTable} />
                 <AuthRoute path="/AllNoticeView"  component={AllNotice} />
+                <Route path="/EditNotice/:id"  component={EditNotice} />
                 {/* sms */}
                 <AuthRoute path="/AddMessage"  component={AddMessage} />
                 <AuthRoute path="/MessageView"  component={MessageView} />

@@ -941,6 +941,41 @@ app.get('/allnoticeview',(req,res)=>{
         
     });
 });
+
+app.put('/noticeupdate/:id' , (req,res) => {
+    var id=req.params.id;
+
+    const topic = req.body.topic;
+    const description = req.body.description;
+    const uploadDate = req.body.uploadDate;
+    const expDate = req.body.expDate;
+
+    db.query("UPDATE notice SET topic=?, description=?, uploadDate=?, expDate=? where noticeID = ?" ,
+    [topic,description,uploadDate,expDate,id],(err,result)=>{ 
+        if(err){
+            console.log(err);
+        } else{
+            res.send("values inserted");
+        }
+    
+    })
+
+})
+
+app.get('/getnotice/:id',(req,res)=>{
+    var id=req.params.id;
+    db.query("SELECT topic,description,uploadDate,expDate FROM notice where noticeID = ? ",
+    [id],
+    (err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  } 
+        
+    });
+});
+
 //remove
 app.put('/remove-notice', (req,res) => {
     const noticeID = req.body.noticeID;
@@ -1165,6 +1200,40 @@ app.get('/formView',(req,res)=>{
 
 app.get('/activeForm',(req,res)=>{
     db.query("SELECT * FROM formtemplate WHERE status='Active' ORDER BY expDate ASC",(err,result,) => {
+        if(err) {
+		console.log(err)
+	  } else {
+        res.send(result)
+	  } 
+        
+    });
+});
+
+app.put('/formupdate/:id' , (req,res) => {
+    var id=req.params.id;
+
+    const formTopic = req.body.formTopic;
+    const description = req.body.description;
+    const uploadDate = req.body.uploadDate;
+    const expDate = req.body.expDate;
+
+    db.query("UPDATE formtemplate SET formTopic=?, uploadDate=?, expDate=?, description=? where formID = ?" ,
+    [formTopic,uploadDate,expDate,description,id],(err,result)=>{ 
+        if(err){
+            console.log(err);
+        } else{
+            res.send("values inserted");
+        }
+    
+    })
+
+})
+
+app.get('/getform/:id',(req,res)=>{
+    var id=req.params.id;
+    db.query("SELECT formTopic,uploadDate,expDate,description FROM formtemplate where formID = ? ",
+    [id],
+    (err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
