@@ -486,6 +486,68 @@ app.get('/getother/:id',(req,res)=>{
     });
 });
 
+
+    //const-delete
+  app.put('/const-delete', (req,res) => {
+    const materialid = req.body.materialid;
+    const status = req.body.status;
+
+    console.log(req.body)
+
+    db.query("UPDATE constsmaterial SET status='Removed' WHERE materialid = ?; ", 
+    [materialid], 
+    (err, result) => {
+
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+       }
+    );
+  });
+
+    //agri-delete
+    app.put('/agri-delete', (req,res) => {
+        const materialid = req.body.materialid;
+        const status = req.body.status;
+    
+        console.log(req.body)
+    
+        db.query("UPDATE agrimaterial SET status='Removed' WHERE materialid = ?; ", 
+        [materialid], 
+        (err, result) => {
+    
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+           }
+        );
+      });
+
+    //other-delete
+  app.put('/other-delete', (req,res) => {
+    const materialid = req.body.materialid;
+    const status = req.body.status;
+
+    console.log(req.body)
+
+    db.query("UPDATE othermaterial SET status='Removed' WHERE materialid = ?; ", 
+    [materialid], 
+    (err, result) => {
+
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+       }
+    );
+  });
+
+
 //Donation
 // app.post('/donationcreate',(req,res)=>{
 //     console.log(req.body)
@@ -684,7 +746,7 @@ app.post('/schedule',(req,res)=>{
 
 //gsview
 app.get('/viewSchedule',(req,res)=>{
-    db.query("SELECT *, TIMEDIFF( endTime, startTime) AS Duration FROM availability ",(err,result,) => {
+    db.query("SELECT *, TIMEDIFF( endTime, startTime) AS Duration FROM availability WHERE status='avail' " ,(err,result,) => {
         if(err) {
 		console.log(err)
 	  } else {
@@ -790,6 +852,26 @@ app.put('/decline-book', (req,res) => {
 
     db.query("UPDATE bookings SET book_status='Declined' WHERE bookID = ?; ", 
     [bookID], 
+    (err, result) => {
+
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+       }
+    );
+  });
+
+  //remove schedule
+app.put('/remove-slot', (req,res) => {
+    const availID = req.body.availID;
+    const status = req.body.status;
+
+    console.log(req.body)
+
+    db.query("UPDATE availability SET status='Remove' WHERE availID = ?; ", 
+    [availID], 
     (err, result) => {
 
         if (err) {

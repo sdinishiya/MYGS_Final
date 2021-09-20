@@ -24,18 +24,18 @@ export default function ViewScheduled() {
     },[])
 
      // decline
-     const [decline, setdecline] = useState("Declined");
+     const [status, setdecline] = useState("Remove");
      const declineReq = (availID) => {
        axios
-         .put("http://localhost:3001/decline-book", {
-           status: decline,
+         .put("http://localhost:3001/remove-slot", {
+           status: status,
            availID: availID,
          })
  
          .then((response) => {
            console.log(availID);
          });
-       alert(" Appointment Request Delclined ");
+       alert(" Appointment Slot removed ");
      };
 
 
@@ -93,6 +93,7 @@ export default function ViewScheduled() {
                             <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                               
                             </th>
+                            
                           </tr>
                         </thead>
                         <tbody>
@@ -135,15 +136,17 @@ export default function ViewScheduled() {
                                 </button>
                               </Link> 
                               </td> */}
-                              <td>
-                              {(viewApp.currentCount==0) ? <Link to="/ViewRequests">
+                               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                               {(viewApp.currentCount==0) ? <Link to="/ViewRequests">
                               <button className="bg-emerald-400 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                       type="submit"  
-                                      onClick={() => declineReq(viewApp.availID)}>  {" "}  
+                                      onClick={() => (viewApp.availID)}>  {" "}  
                                       Edit
                                 </button>
                               </Link> : ""
                               }
+                              </td>
+                              <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                               {(viewApp.currentCount==0) ? <Link to="/ViewRequests">
                               <button className="bg-red-500 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                       type="submit"  
@@ -152,7 +155,7 @@ export default function ViewScheduled() {
                                 </button>
                               </Link> : ""
                               } 
-                              </td> 
+                              </td>
 
                               
                           </tr>

@@ -19,6 +19,22 @@ export default function ViewDonation() {
           })
       },[])
 
+        // decline
+     const [status, setdecline] = useState("Removed");
+     const declineReq = (materialid) => {
+       axios
+         .put("http://localhost:3001/agri-delete", {
+           status: status,
+           materialid: materialid,
+         })
+ 
+         .then((response) => {
+           console.log(materialid);
+         });
+       alert(" Agriculture Material Details Removed! ");
+     };
+
+
   return (    
     <>
     
@@ -132,7 +148,7 @@ export default function ViewDonation() {
                                   <Link to="">
                                     <button className="bg-red-500 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                           type="submit" 
-                                          onClick={() => (record.materialid)}>  {" "}  
+                                          onClick={() => declineReq(record.materialid)}>  {" "}  
                                           Delete
                                     </button>
                                   </Link>  
