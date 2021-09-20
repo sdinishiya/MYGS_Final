@@ -1093,7 +1093,28 @@ app.put('/send-sms', (req,res) => {
     );
   });
 
+  //decline
+app.put('/remove-sms', (req,res) => {
+    const smsID = req.body.smsID;
+    const status = req.body.status;
 
+    console.log(req.body)
+
+    db.query("UPDATE sms SET status='Sent' WHERE smsID = ?; ", 
+    [smsID], 
+    (err, result) => {
+
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+       }
+    );
+  });
+
+  
+//forum
 app.post('/addnewforum' , (req , res)=>{
     const postid = req.body.postid;
     const posttext = req.body.posttext;
