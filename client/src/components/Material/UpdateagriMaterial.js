@@ -32,17 +32,6 @@ export default function UpdateagriMaterial() {
     const [type, settype] = useState('');
     let {id}=useParams();
 
-    // const handleChange = (event) => {
-    //   settype(event.target.value);
-    // };
-  
-    // const handleClose = () => {
-    //   setOpen(false);
-    // };
-  
-    // const handleOpen = () => {
-    //   console.log(addeddate);
-    // };
 
     const [addeddate,setaddeddate] = useState("");
     const [materialname,setmaterialname] = useState("");
@@ -121,36 +110,6 @@ function submit(event){
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
               <div className="w-full lg:w-10/12 px-4">
-                {/* <Link to="/AddnewconstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          Add New Material
-                  </button> 
-                </Link>
-                <Link to="/AddconstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          Add Material
-                  </button> 
-                </Link>
-                <Link to="/ConstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          View Added Material
-                  </button> 
-                </Link>
-                <Link to="/SupplyconstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          Supply Material    
-                  </button>
-                </Link>
-                <Link to="/ViewSuppliedconstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          View Supplied Material
-                  </button> <br/><br/>
-                </Link> */}
               </div>
               <div className="w-full lg:w-6/12 px-4"> 
                 <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-emerald-200">

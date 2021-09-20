@@ -36,52 +36,6 @@ export default function ViewDonation() {
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
               <div className="w-full lg:w-10/12 px-4">
-              {/* <SearchBar/> */}
-              {/* <Link to="/AddnewconstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          Add New Material
-                  </button> 
-                </Link>
-                <Link to="/AddconstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          Add Material
-                  </button> 
-                </Link>
-                <Link to="/ConstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          View Added Material
-                  </button> 
-                </Link>
-                <Link to="/SupplyconstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          Distrubute Material    
-                  </button>
-                </Link>
-                <Link to="/ViewSuppliedconstMaterial">
-                  <button className="bg-emerald-400 text-white active:bg-emerald-300 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                          type="submit" >
-                          View Distrubuted Material
-                  </button> 
-                  
-                </Link> */}
-                {/* <form className="md:flex hidden lg:w-3/12 flex-row flex-wrap items-center lg:ml-auto mr-3">
-                  <div className="relative flex w-full flex-wrap items-stretch">
-                    <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
-                      <i className="fas fa-search"></i>
-                    </span>
-                    <input
-                      type="text"
-                      placeholder="Search here..."
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10"
-                    />
-                  </div>
-                </form><br/><br/> */}
-
-
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                     <div className="rounded-t mb-0 px-4 py-3 border-0">
                       <div className="flex flex-wrap items-center">
