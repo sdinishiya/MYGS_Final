@@ -14,7 +14,7 @@ import FooterAdmin from "components/Footers/FooterAdmin.js";
 
 // components
 
-export default function CardPageVisits() {
+export default function CardPageVisits1() {
   
   const [notices,setnotices]=useState([])
 
@@ -31,7 +31,7 @@ export default function CardPageVisits() {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
               <h3 className="font-semibold text-base text-blueGray-700">
-                Active Notices
+                Active Form Templates
               </h3>
             </div>
             <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
