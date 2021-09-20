@@ -29,18 +29,24 @@ export default function AddForm() {
         alert("Expiry Date must be after the Date Upoaded");
         return;
       }
+console.log(file);
 
       const formdata= new FormData();
       const data = {
         formTopic:formTopic,
-        file:file,
+        // file:file,
         UploadDate:UploadDate,
         expDate:expDate,
         description:description,
         status:status,
         }
+
+console.log(data);
         formdata.append("data", JSON.stringify(data)) 
         formdata.append("file", file)
+
+console.log(formdata.get("data"));
+console.log(formdata.get("file"));
 
        axios.post('http://localhost:3001/add-form', formdata
        ).then(()=>{
@@ -49,7 +55,7 @@ export default function AddForm() {
          });
 
          alert(" Added Successfully ");
-        history.push("/FormTemplate/AddForms");
+        history.push("/AddForms");
     };
   return (
     <>
@@ -106,7 +112,7 @@ export default function AddForm() {
                       </label>
                       <input type="file"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 "
-                        name="topic" onChange={(event)=>{setfile(event.target.value);}} 
+                        name="topic" onChange={(event)=>{setfile(event.target.files[0]);}} 
                         required />
                     </div>
                     <div className="relative w-full mb-3">
@@ -127,7 +133,7 @@ export default function AddForm() {
                     <div className="text-center mt-6">
                       <button
                         className="bg-emerald-450 text-white active:bg-emerald-300 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                        type="submit"
+                        type="submit" 
                         onClick={formadd}
                       > Add 
                       </button>
