@@ -14,7 +14,7 @@ import FooterAdmin from "components/Footers/FooterAdmin.js";
 
 // components
 
-export default function CardPageVisits() {
+export default function CardPageVisits2() {
   
   const [notices,setnotices]=useState([])
 
@@ -31,7 +31,7 @@ export default function CardPageVisits() {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
               <h3 className="font-semibold text-base text-blueGray-700">
-                Active Notices
+                Projects On going
               </h3>
             </div>
             <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
@@ -50,16 +50,16 @@ export default function CardPageVisits() {
                         <thead>
                           <tr>
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                              Topic   
+                              Name   
                           </th>
                           {/* <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                               Description  
                           </th> */}
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                              Date Uploaded  
+                              Date Started  
                           </th>
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                              Expiry Date  
+                              End planned  
                           </th>
                           
                           </tr>
