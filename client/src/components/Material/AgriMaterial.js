@@ -121,6 +121,22 @@ export default function ViewDonation() {
                                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
                                     {record.quantity}
                                 </td>
+                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                  <Link to={`/UpdateagriMaterial/${record.materialid}`}>
+                                    <button className="bg-emerald-400 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                          type="submit" 
+                                          onClick={() => (record.materialid)}>  {" "}         
+                                          Edit
+                                    </button>
+                                  </Link> 
+                                  <Link to="">
+                                    <button className="bg-red-500 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                          type="submit" 
+                                          onClick={() => (record.materialid)}>  {" "}  
+                                          Delete
+                                    </button>
+                                  </Link>  
+                                </td>
                               </tr>
                             )
                             })}

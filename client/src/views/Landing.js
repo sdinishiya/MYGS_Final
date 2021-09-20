@@ -48,7 +48,7 @@ export default function Landing() {
                   
                   <br/>
                   <h3 className="text-white font-semibold text-2xl">
-                     UDAPALATHA GRAMA NILADHARI WASAMA
+                    {t("sub_title")}
                   </h3>
                   <p className="mt-4 text-lg text-blueGray-200">
                       We are the Grama Sevakha Niladhari division of Udapalatha GS wasama under the Kandy Division Secretariate.

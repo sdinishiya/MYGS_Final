@@ -161,6 +161,10 @@ export default function AddnewagriMaterial() {
                                   <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
                                     {record.materialname} 
                                   </th>
+
+                                  <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-roght">
+                                  {record.quantity} 
+                                </th>
                                 </tr>
                                       )
                                 })
