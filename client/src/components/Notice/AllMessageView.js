@@ -154,11 +154,10 @@ export default function AllmessageView() {
                               </td>
                               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                               {(notice.status!="Sent")?
-
-                                <Link to="/MessageView">
-                                <button className="bg-emerald-350 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                              <Link to={`/EditMessage/${notice.smsID}`}>
+                                <button className="bg-emerald-400 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                       type="submit" 
-                                      onClick={() => sendSMS(notice.smsID)}>  {" "}         
+                                      onClick={() => (notice.smsID)}>  {" "}         
                                       Edit
                                 </button>
                                 </Link>  : ""

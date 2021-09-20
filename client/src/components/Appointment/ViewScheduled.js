@@ -136,15 +136,19 @@ export default function ViewScheduled() {
                               </Link> 
                               </td> */}
                               <td>
-                              {(viewApp.currentCount==0) ? <Link to="/ViewRequests">
+                              {(viewApp.currentCount==0) ? 
+                              <Link to={`/EditSchedule/${viewApp.availID}`}>
                               <button className="bg-emerald-400 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                       type="submit"  
-                                      onClick={() => declineReq(viewApp.availID)}>  {" "}  
+                                      onClick={() => (viewApp.availID)}>  {" "}  
                                       Edit
                                 </button>
                               </Link> : ""
                               }
-                              {(viewApp.currentCount==0) ? <Link to="/ViewRequests">
+                              </td>
+                              <td>
+                              {(viewApp.currentCount==0) ? 
+                              <Link to="/ViewRequests">
                               <button className="bg-red-500 text-white active:bg-emerald-500 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                                       type="submit"  
                                       onClick={() => declineReq(viewApp.availID)}>  {" "}  
