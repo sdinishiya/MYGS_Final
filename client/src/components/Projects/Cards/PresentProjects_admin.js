@@ -51,7 +51,7 @@ export default function ProjectReviewCard1(props) {
           props.setedit(!(props.edit));
           console.log(response.data);
           alert("Deleted Successfully!!!");
-          window.location.href="admin";
+          window.location.href="FuturePresent";
       })
       .catch(function (error) {
           // handle error

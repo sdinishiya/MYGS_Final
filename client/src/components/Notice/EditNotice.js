@@ -100,7 +100,23 @@ function submit(event){
 // const month = ('0' + (dt.getMonth() + 1 )).slice(-2) + '/';
 // const day = ('0' + dt.getDate()).slice(-2);
        
+useEffect(() => {
+  // Date convertor
+const dtt = new Date(uploadDate);
+const year = dtt.getFullYear() + '-';
+const month = ('0' + (dtt.getMonth() + 1)).slice(-2) + '-';
+const day = ('0' + dtt.getDate()).slice(-2);
+setuploadDate(year+month+day);        
+},[uploadDate]);
 
+useEffect(() => {
+  // Date convertor
+const dtt = new Date(expDate);
+const year = dtt.getFullYear() + '-';
+const month = ('0' + (dtt.getMonth() + 1)).slice(-2) + '-';
+const day = ('0' + dtt.getDate()).slice(-2);
+setexpDate(year+month+day);        
+},[expDate]);
 
 
 
@@ -157,7 +173,7 @@ function submit(event){
                       </label>
                       <input type="date"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        Value={uploadDate} 
+                        defaultValue={uploadDate} 
                         name="UploadDate" onChange={(event)=>{setuploadDate(event.target.value);}} 
                         required
                         placeholder="UploadDate"/>
@@ -169,7 +185,7 @@ function submit(event){
                       </label>
                       <input type="date"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        Value={expDate} 
+                        defaultValue={expDate} 
                         name="expDate" onChange={(event)=>{setexpDate(event.target.value);}} 
                         required
                         placeholder="expDate"/>

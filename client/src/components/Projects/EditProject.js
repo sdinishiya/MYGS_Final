@@ -69,7 +69,6 @@ export default function EditProjects() {
   const [readMore, setreadMore] = useState('');
   const history = useHistory();
 
-
  useEffect(()=>{
   axios.get(`http://localhost:3001/getproject/${id}`)
   .then(function (response) {
@@ -84,7 +83,6 @@ export default function EditProjects() {
   })
  },[])
 
-
   function submit(event){
     event.preventDefault();
     axios.put(`http://localhost:3001/update_project/${id}`, {
@@ -98,7 +96,7 @@ export default function EditProjects() {
           // handle success
           console.log(response.data.response);
           alert("Updated Successfully!!!");
-          history.push('/EditProject/PresentProjects');
+          history.push('/PresentProjects');
       })
       .catch(function (error) {
           // handle error

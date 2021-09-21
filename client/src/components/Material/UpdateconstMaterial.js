@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
   formControl: {
     minWidth: '454px',
-  },
+  },  
 
 }
 ));
@@ -94,11 +94,15 @@ function submit(event){
 }
 
 
+useEffect(() => {
   // Date convertor
-// const dt = new Date(addeddate);
-// const year = dt.getFullYear() + '/';
-// const month = ('0' + (dt.getMonth() + 1 )).slice(-2) + '/';
-// const day = ('0' + dt.getDate()).slice(-2);
+const dtt = new Date(addeddate);
+const year = dtt.getFullYear() + '-';
+const month = ('0' + (dtt.getMonth() + 1)).slice(-2) + '-';
+const day = ('0' + dtt.getDate()).slice(-2);
+setaddeddate(year+month+day);        
+},[addeddate]);
+
        
 
 
@@ -162,11 +166,11 @@ function submit(event){
                     <div className="relative w-full mb-3 mt-8">
                     
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                        Date
+                        Date 
                       </label>
                       <input type="date"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        Value={addeddate} 
+                        defaultValue={addeddate} 
                         name="Date" onChange={(event)=>{setaddeddate(event.target.value);}} 
                         required
                         placeholder="Date"/>

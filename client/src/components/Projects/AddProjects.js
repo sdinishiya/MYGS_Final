@@ -66,7 +66,7 @@ export default function AddProjects() {
     const [title, settitle] = useState('');
     const [date, setdate] = useState('');
     const [intro, setintro] = useState('');
-    const [image, setimage] = useState('');
+    // const [image, setimage] = useState('');
     const [readMore, setreadMore] = useState('');
     const history = useHistory();
 
@@ -77,7 +77,7 @@ export default function AddProjects() {
           "type":type,
           "title":title,
           "date":date,
-          "image":image,
+          // "image":image,
           "intro":intro,
           "read_more":readMore, 
         })
@@ -88,7 +88,7 @@ export default function AddProjects() {
             settitle("");
             setdate("");
             setintro("");
-            image("");
+            // image("");
             setreadMore("");
             settype("");
   
@@ -170,7 +170,7 @@ export default function AddProjects() {
                         placeholder="Date"/>
                     </div>
                         <br/>
-                    <div className={classes.root}>
+                    {/* <div className={classes.root}>
                     <input
                             accept="image/*"
                             className={classes.input}
@@ -185,7 +185,7 @@ export default function AddProjects() {
                                 Upload Project image
                             </button> 
                         </label>
-                    </div>
+                    </div> */}
 
                     <div className="relative w-full mb-3 mt-8">
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
@@ -221,7 +221,7 @@ export default function AddProjects() {
                       </button>
                       </Link>
 
-                      <Link to = '/AddProjects'>
+                      <Link to = '/PresentProjects'>
                       <button
                         className="bg-red-100 text-white active:bg-red-100 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                         type="button"> 

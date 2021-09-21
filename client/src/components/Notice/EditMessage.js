@@ -100,7 +100,14 @@ function submit(event){
 // const month = ('0' + (dt.getMonth() + 1 )).slice(-2) + '/';
 // const day = ('0' + dt.getDate()).slice(-2);
        
-
+useEffect(() => {
+  // Date convertor
+const dtt = new Date(uploadDate);
+const year = dtt.getFullYear() + '-';
+const month = ('0' + (dtt.getMonth() + 1)).slice(-2) + '-';
+const day = ('0' + dtt.getDate()).slice(-2);
+setuploadDate(year+month+day);        
+},[uploadDate]);
 
 
 
