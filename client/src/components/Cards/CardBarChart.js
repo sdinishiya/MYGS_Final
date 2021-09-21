@@ -2,6 +2,17 @@ import React from "react";
 import Chart from "chart.js";
 
 export default function CardBarChart() {
+
+//   const [visitanalysis,setVisitanalysis]=useState([])
+//   useEffect(()=>{
+//     axios.get("http://localhost:3001/visitanalysis").then((response)=>{
+//         setVisitanalysis(response.data)
+//     })
+//   },[])
+
+// const count=visitanalysis.map(record=>record.count);
+
+
   React.useEffect(() => {
     let config = {
       type: "bar",
@@ -98,6 +109,8 @@ export default function CardBarChart() {
     let ctx = document.getElementById("bar-chart").getContext("2d");
     window.myBar = new Chart(ctx, config);
   }, []);
+
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
