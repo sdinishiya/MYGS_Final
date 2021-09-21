@@ -16,6 +16,7 @@ import {NAVIGATION_ROUTES} from "../../../../navigation/constant/NavigationRoute
 import {useHistory} from "react-router";
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 
+import {USER_TYPES} from "constants/CommonConstants";
 
 export const NotificationController = () => {
     const [notifications, setNotifications] = useState([]);
@@ -53,49 +54,100 @@ export const NotificationController = () => {
 
     return(
         <>
-            <Sidebar />
-            <div className="relative md:ml-64 bg-blueGray-100">
-                <AdminNavbar />
-                {/* Header */}
-                <HeaderStats />
-                <div className="px-4 md:px-10 mx-auto w-full -m-24">
-                    <Grid container spacing={2}>
-                        {notifications.map(item => {
-                            return(
-                                <Grid item xs={12} md={12}>
-                                    <Card>
-                                        <CardActionArea
-                                            onClick={() => handleReadNotification(item.notificationId)}
-                                            disabled={item.status === 1}
-                                        >
-                                            <CardHeader
-                                                avatar={
-                                                    <Badge
-                                                        variant="dot"
-                                                        overlap="circular"
-                                                        color="primary"
-                                                        anchorOrigin={{
-                                                            vertical: "top",
-                                                            horizontal: "left",
-                                                        }}
-                                                        invisible={item.status === 1}
-                                                    >
-                                                        <Avatar>
-                                                            {item.status === 1 ? <NotificationsIcon /> : <NotificationsActiveIcon/>}
-                                                        </Avatar>
-                                                    </Badge>
-                                                }
-                                                title={item.title}
-                                                subheader={item.description}
-                                            />
-                                        </CardActionArea>
-                                    </Card>
-                                </Grid>
-                                )
-                        })}
-                    </Grid>
-                </div>
+     { user.userType=== USER_TYPES.ADMIN? (
+         <>
+        <Sidebar /> 
+           <div className="relative md:ml-64 bg-blueGray-100">
+            <AdminNavbar />
+            {/* Header */}
+            <HeaderStats />
+            <div className="px-4 md:px-10 mx-auto w-full -m-24">
+                <Grid container spacing={2}>
+                    {notifications.map(item => {
+                        return(
+                            <Grid item xs={12} md={12}>
+                                <Card>
+                                    <CardActionArea
+                                        onClick={() => handleReadNotification(item.notificationId)}
+                                        disabled={item.status === 1}
+                                    >
+                                        <CardHeader
+                                            avatar={
+                                                <Badge
+                                                    variant="dot"
+                                                    overlap="circular"
+                                                    color="primary"
+                                                    anchorOrigin={{
+                                                        vertical: "top",
+                                                        horizontal: "left",
+                                                    }}
+                                                    invisible={item.status === 1}
+                                                >
+                                                    <Avatar>
+                                                        {item.status === 1 ? <NotificationsIcon /> : <NotificationsActiveIcon/>}
+                                                    </Avatar>
+                                                </Badge>
+                                            }
+                                            title={item.title}
+                                            subheader={item.description}
+                                        />
+                                    </CardActionArea>
+                                </Card>
+                            </Grid>
+                            )
+                    })}
+                </Grid>
             </div>
+      </div> 
+      </>
+
+     ):(
+
+            <>
+            <AdminNavbar />
+            {/* Header */}
+            <HeaderStats />
+            <div className="px-4 md:px-10 mx-auto w-full -m-24">
+                <Grid container spacing={2}>
+                    {notifications.map(item => {
+                        return(
+                            <Grid item xs={12} md={12}>
+                                <Card>
+                                    <CardActionArea
+                                        onClick={() => handleReadNotification(item.notificationId)}
+                                        disabled={item.status === 1}
+                                    >
+                                        <CardHeader
+                                            avatar={
+                                                <Badge
+                                                    variant="dot"
+                                                    overlap="circular"
+                                                    color="primary"
+                                                    anchorOrigin={{
+                                                        vertical: "top",
+                                                        horizontal: "left",
+                                                    }}
+                                                    invisible={item.status === 1}
+                                                >
+                                                    <Avatar>
+                                                        {item.status === 1 ? <NotificationsIcon /> : <NotificationsActiveIcon/>}
+                                                    </Avatar>
+                                                </Badge>
+                                            }
+                                            title={item.title}
+                                            subheader={item.description}
+                                        />
+                                    </CardActionArea>
+                                </Card>
+                            </Grid>
+                            )
+                    })}
+                </Grid>
+            </div>
+       </>
+
+     )}
+            
 
         </>
     )

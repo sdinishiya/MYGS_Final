@@ -20,7 +20,7 @@ export default function CardPageVisits2() {
 
 
   useEffect(()=>{
-    axios.get("http://localhost:3001/noticeview").then((response)=>{
+    axios.get("http://localhost:3001/formView").then((response)=>{
         setnotices(response.data)
     })
   },[])
@@ -31,11 +31,11 @@ export default function CardPageVisits2() {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
               <h3 className="font-semibold text-base text-blueGray-700">
-                Projects On going
+                Available Form Templates 
               </h3>
             </div>
             <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-            <Link to="/noticeView">
+            <Link to="/FormTemplateView">
                 <button className="bg-emerald-400 text-white active:bg-emerald-400 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                       type="submit" >
                       View 
@@ -50,16 +50,16 @@ export default function CardPageVisits2() {
                         <thead>
                           <tr>
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                              Name   
+                              Title   
                           </th>
                           {/* <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                               Description  
                           </th> */}
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                              Date Started  
+                             Description 
                           </th>
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                              End planned  
+                              Expiry Date  
                           </th>
                           
                           </tr>
@@ -81,14 +81,14 @@ export default function CardPageVisits2() {
                               <tr>
                               <th className ="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
                                 <span className ={ "ml-3 font-bold " + "text-blueGray-600"}>
-                                  {notice.topic}
+                                  {notice.formTopic}
                                 </span>
                               </th>
                               {/* <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                   {notice.description}
                               </td> */}
                               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                  {year + month + day}
+                                    {notice.description}
                               </td>
                               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                   {year1 + month1 + day1}

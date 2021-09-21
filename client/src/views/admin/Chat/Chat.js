@@ -12,7 +12,7 @@ export const Chat = () => {
 
     const projectId = "b82e6dbb-a078-486f-852f-de1b22ada1de";
     const user = useSelector((state) => state.authReducer);
-
+console.log(user)
     return(
         <main>
             {user.userType === USER_TYPES.ADMIN ? (

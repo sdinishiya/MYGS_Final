@@ -20,7 +20,7 @@ export default function CardPageVisits1() {
 
 
   useEffect(()=>{
-    axios.get("http://localhost:3001/noticeview").then((response)=>{
+    axios.get("http://localhost:3001/smsview").then((response)=>{
         setnotices(response.data)
     })
   },[])
@@ -31,11 +31,11 @@ export default function CardPageVisits1() {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
               <h3 className="font-semibold text-base text-blueGray-700">
-                Active Form Templates
+                General SMS Sent
               </h3>
             </div>
             <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-            <Link to="/noticeView">
+            <Link to="/AllMessageView">
                 <button className="bg-emerald-400 text-white active:bg-emerald-400 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                       type="submit" >
                       View 
@@ -50,16 +50,16 @@ export default function CardPageVisits1() {
                         <thead>
                           <tr>
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                              Topic   
+                              Title   
                           </th>
                           {/* <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                               Description  
                           </th> */}
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                              Date Uploaded  
+                              Date   
                           </th>
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                              Expiry Date  
+                              Group Type
                           </th>
                           
                           </tr>
@@ -91,7 +91,7 @@ export default function CardPageVisits1() {
                                   {year + month + day}
                               </td>
                               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                  {year1 + month1 + day1}
+                                  {notice.type}
                               </td>
                               
                               

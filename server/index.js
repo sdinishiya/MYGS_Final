@@ -1178,6 +1178,7 @@ app.get('/smsview',(req,res)=>{
         
     });
 });
+
 app.get('/allsmsview',(req,res)=>{
     db.query("SELECT * FROM sms ORDER BY uploadDate ASC",(err,result,) => {
         if(err) {
@@ -1610,6 +1611,8 @@ app.get('/get_past_projects', (req, res)=> {
 		}
 	})	
 });
+
+
 
 app.listen(3001, () => {
 	console.log("running on port 3001");
