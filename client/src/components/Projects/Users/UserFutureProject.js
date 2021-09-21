@@ -5,7 +5,7 @@ import axios from "axios";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import PresentProject1 from 'assets/img/PresentProject1.jpg' ; 
+import PresentProject1 from 'assets/img/mushroomProject.jpg' ; 
 import UserProjectReviewCard from 'components/Projects/Cards/UserPresentProjects_admin';
 
 // components
