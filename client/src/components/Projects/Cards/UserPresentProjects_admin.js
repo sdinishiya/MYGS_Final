@@ -184,7 +184,7 @@ export default function UserProjectReviewCard(props) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Read More</Typography>
+          {/* <Typography paragraph>Read More</Typography>
           <Typography paragraph>
         a
           </Typography>
@@ -195,7 +195,7 @@ export default function UserProjectReviewCard(props) {
           a
           </Typography>
           <Typography>
-          a </Typography>
+          a </Typography> */}
         </CardContent>
       </Collapse>
     </Card>

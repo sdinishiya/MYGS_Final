@@ -192,7 +192,7 @@ export default function LogLanding() {
           <div className="container mx-auto px-4">
             <div className="items-center flex flex-wrap">
               <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
-                <Link to="/Pages/Formpage" className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-400">
+                <Link to="/UserPresentProject" className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-400">
                   <img
                     alt="..."
                     className="max-w-full rounded-lg"
@@ -230,7 +230,7 @@ export default function LogLanding() {
                   
                   <ul className="list-none mt-6">
                     <li className="py-2">
-                      <Link to="/Pages/Projectpage" className="font-bold flex items-center">
+                      <Link to="UserPastProject" className="font-bold flex items-center">
                         <div>
                           <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
                             <i className="fas fa-fingerprint"></i>
@@ -244,7 +244,7 @@ export default function LogLanding() {
                       </Link>
                     </li>
                     <li className="py-2">
-                      <Link to="/Pages/Projectpage" className="font-bold flex items-center">
+                      <Link to="UserPresentProject" className="font-bold flex items-center">
                         <div>
                           <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
                             <i className="fab fa-html5"></i>
@@ -258,7 +258,7 @@ export default function LogLanding() {
                       </Link>
                     </li>
                     <li className="py-2">
-                      <Link to="/Pages/Projectpage" className="font-bold flex items-center">
+                      <Link to="/UserFutureProject" className="font-bold flex items-center">
                         <div>
                           <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
                             <i className="far fa-paper-plane"></i>
@@ -291,14 +291,14 @@ export default function LogLanding() {
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
                    {t("resource_details_body")}
                 </p>
-                <Link to="/Pages/Resourcepage" className="font-bold text-blueGray-700 mt-8">
+                <Link to="/Users/Const" className="font-bold text-blueGray-700 mt-8">
                   {t("click_resource")}
                 </Link>
               </div>
 
               <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
                 <br/><br/><br/>
-                <Link to="/Pages/Resourcepage" className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-300">
+                <Link to="/Users/Const" className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-300">
                   <img
                     alt="..."
                     className="max-w-full rounded-lg"
@@ -352,7 +352,7 @@ export default function LogLanding() {
           <div className="container mx-auto px-4">
             <div className="items-center flex flex-wrap">
               <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
-              <Link to="/Pages/Appointmentpage" className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-400">
+              <Link to="/UserView" className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-400">
                 <img
                   alt="..."
                   className="max-w-full rounded-lg"
@@ -388,7 +388,7 @@ export default function LogLanding() {
                   <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
                     {t("make_appointment_body")} 
                   </p>
-                  <Link to="/Pages/Appointmentpage" className="font-bold text-blueGray-700 mt-8">
+                  <Link to="/UserView" className="font-bold text-blueGray-700 mt-8">
                     {t("click_make_appointment")}
                   </Link>
                 </div>
@@ -410,14 +410,14 @@ export default function LogLanding() {
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
                   {t("donation_make")}
                 </p>
-                <Link to="/Pages/Donationpage" className="font-bold text-blueGray-700 mt-8">
+                <Link to="/donate2" className="font-bold text-blueGray-700 mt-8">
                   {t("click_donation_make")}
                 </Link>
               </div>
 
               <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
                 <br/><br/><br/>
-              <Link to="/pages/Donationpage" className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-300">
+              <Link to="/donate2" className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-300">
                 <img
                   alt="..."
                   className="max-w-full rounded-lg"
@@ -470,7 +470,7 @@ export default function LogLanding() {
           <div className="container mx-auto px-4">
             <div className="items-center flex flex-wrap">
               <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
-              <Link to="/Pages/Forumpage" className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-400">
+              <Link to="/chat" className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-emerald-400">
                 <img
                   alt="..."
                   className="max-w-full rounded-lg"
@@ -498,9 +498,7 @@ export default function LogLanding() {
               </div>
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                 <div className="md:pr-12">
-                  {/* <div className="text-lightBlue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-lightBlue-300">
-                    <i className="fas fa-rocket text-xl"></i>
-                  </div> */}
+              
                   <h3 className="text-3xl font-semibold">{t("forum_discussion")}</h3>
                   <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
                    {t("forum_discussion_body")} 
