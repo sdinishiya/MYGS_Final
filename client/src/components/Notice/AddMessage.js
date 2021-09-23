@@ -29,10 +29,7 @@ export default function AddMessage() {
 
     const messageadd = ()=>{
 
-      // var msg= topic+' '+description+' '+uploadDate+'';
-      // axios.get(`https://www.textit.biz/sendmsg?id=94711655166&pw=9411&to=${phone}&text=${msg}`);
-      // console.log(`https://www.textit.biz/sendmsg?id=94711655166&pw=9411&to=${phone}&text=${msg}`)
-      // console.log(smsID);
+     
 
       const d1 = new Date(uploadDate);
       const d2 = new Date(expDate);
