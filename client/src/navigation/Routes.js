@@ -84,6 +84,8 @@ import UserPastProject from "components/Projects/Users/UserPastProject";
 
 
 
+
+
 const Routes = () => {
     return(
         <BrowserRouter>
@@ -197,7 +199,8 @@ const Routes = () => {
                     <Route path="/UserPastProject" component={UserPastProject}/>
 
                 {/* people */}
-
+                
+                
 
                 <AuthRoute path="/CardPageVisitsCheck" component={CardPageVisitsCheck}/>
                 {/* <Route path="/CardPageVisits" component={CardPageVisits}/> */}

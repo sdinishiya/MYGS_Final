@@ -30,7 +30,7 @@ export default function Footer() {
               <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
                 Find us on any of these platforms, we respond 1-2 business days.
               </h5>
-              <div className="mt-6 lg:mb-0 mb-6">
+              {/* <div className="mt-6 lg:mb-0 mb-6">
                 <button
                   className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
@@ -55,15 +55,15 @@ export default function Footer() {
                 >
                   <i className="fab fa-github"></i>
                 </button>
-              </div>
+              </div> */}
             </div>
             <div className="w-full lg:w-6/12 px-4">
               <div className="flex flex-wrap items-top mb-6">
                 <div className="w-full lg:w-4/12 px-4 ml-auto">
-                  <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">
+                  {/* <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">
                     Useful Links
-                  </span>
-                  <ul className="list-unstyled">
+                  </span> */}
+                  {/* <ul className="list-unstyled">
                     <li>
                       <a
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
@@ -135,7 +135,7 @@ export default function Footer() {
                         Contact Us
                       </a>
                     </li>
-                  </ul>
+                  </ul> */}
                 </div>
               </div>
             </div>
