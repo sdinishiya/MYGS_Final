@@ -4,6 +4,7 @@
   "main": "index.js",
   "dependencies": {
     "@hookform/resolvers": "^2.8.0",
+    "@vonage/server-sdk": "^2.10.10",
     "all": "^0.0.0",
     "axios": "^0.21.4",
     "bcrypt": "^5.0.1",

@@ -54,12 +54,12 @@ export default function MessageView() {
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
               <div className="w-full lg:w-11/12 px-4">
-              <Link to="/AllMessageView">
+              {/* <Link to="/AllMessageView">
                 <button className="bg-emerald-400 text-white active:bg-emerald-400 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                       type="submit" >
                       View All SMS  
                 </button> <br /><br />
-              </Link>
+              </Link> */}
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                     <div className="rounded-t mb-0 px-4 py-3 border-0">
                       <div className="flex flex-wrap items-center">
@@ -90,11 +90,11 @@ export default function MessageView() {
                               Description  
                           </th>
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                              Date Uploaded  
+                              Event Date  
                           </th>
-                          <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
+                          {/* <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                               Villager Group 
-                          </th>
+                          </th> */}
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                                
                           </th>
@@ -126,9 +126,9 @@ export default function MessageView() {
                               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                   {year + month + day}
                               </td>
-                              <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                              {/* <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                {notice.type}
-                              </td>
+                              </td> */}
                               
                               
                             </tr>

@@ -25,12 +25,14 @@ export default function AddMessage() {
     const [phone,setphone] = useState("");
     const [type,settype] = useState("");
     const [status,setStatus] = useState("");
+
+    const [to,setTo] = useState("");
+    const [message,setMessage] = useState("");
     const history  = useHistory();
 
     const messageadd = ()=>{
 
      
-
       const d1 = new Date(uploadDate);
       const d2 = new Date(expDate);
       if (d2< d1) {
@@ -42,9 +44,9 @@ export default function AddMessage() {
         topic:topic,
         description:description,
         uploadDate: uploadDate,
+        phone:phone,
         expDate:expDate,
         type:type,
-        phone:phone,
         status:status,
 
         }).then(()=>{
@@ -131,15 +133,6 @@ const mystyle = {
                     </div>
                     {/* <div className="relative w-full mb-3 mt-8">
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                        Deadline Date
-                      </label>
-                      <input type="date"
-                        name="expDate" onChange={(event)=>{setExpDate(event.target.value);}} 
-                        required
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"/>
-                    </div> */}
-                    {/* <div className="relative w-full mb-3 mt-8">
-                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                         Phone Number
                       </label>
                       <input type="int"
@@ -148,7 +141,7 @@ const mystyle = {
                         required
                         placeholder="Enter Phone No..."/>
                     </div> */}
-                    <div className="relative w-full mb-3 mt-8">
+                    {/* <div className="relative w-full mb-3 mt-8">
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                         Select Type
                       </label>
@@ -167,7 +160,7 @@ const mystyle = {
 
                            </Select>
                        </FormControl><br /> 
-                    </div>
+                    </div> */}
 
                     <box>
                     <div className="text-center mt-6">

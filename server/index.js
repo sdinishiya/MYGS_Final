@@ -7,6 +7,8 @@ const routes = require('./routes')
 const {db} = require('./config/db.config')
 const axios = require("axios")
 
+const Vonage = require('@vonage/server-sdk')
+
 const fileUpload = require('express-fileupload');
 const bodyParser =  require('body-parser')
 const path = require('path');
@@ -1133,7 +1135,6 @@ app.put('/active-notice', (req,res) => {
   });
 
 
-
 //General Message
 //dropdown 
 app.get('/smstype',(req,res)=>{
@@ -1145,51 +1146,6 @@ app.get('/smstype',(req,res)=>{
 	  }     
     });
 });
-
-
-//addSMS
-app.post('/addsms',(req,res)=>{
-    console.log(req.body)
-    const smsID = req.body.smsID;
-    const topic = req.body.topic;
-    const description = req.body.description; 
-    const uploadDate = req.body.uploadDate;
-    const type = req.body.type;
-    const status = req.body.status; 
-    // const status= "Not-Sent"
-
-    db.query("INSERT INTO sms (topic,description,uploadDate,type) VALUES (?,?,?,?)",
-    [topic,description,uploadDate,type],(err,result)=>{
-		if(err){
-            console.log(err);
-        } else{
-            res.send("values inserted");
-        }
-    
-    })
-    
-});
-
-//new 
-// app.post('/addsms',(req,res)=>{
-//     console.log(req.body)
-//     const topic = req.body.topic;
-//     const description = req.body.description;
-//     const uploadDate = req.body.uploadDate;
-//     const expDate = req.body.expDate;
-//     const status= "Not-Sent"
-
-//     db.query("INSERT INTO sms (topic,description,uploadDate,expDate,status) VALUES (?,?,?,?,?)",
-//     [topic,description,uploadDate,expDate,status],(err,result)=>{
-// 		if(err){
-//             console.log(err);
-//             res.status(500).send(JSON.parse("{'status': 'Failed'}"));
-//         } else{
-//             res.send("{'message': 'success'}");
-//         }
-//     })
-// });
-
 
 
 app.get('/smsview',(req,res)=>{
@@ -1268,34 +1224,64 @@ app.put('/send-sms', (req,res) => {
     );
   });
 
-//   app.post('/send-sms', (req, res) => {
-//     console.log(req.body)
-//     const MID = "1357"
-//     const SID = "94771655198"
-//     const to_number = req.body.to;
-//     const message = req.body.message;
+  app.get('/qqq',(req,res) =>{
+    console.log("a",req.body)
+    console.log("b",req.params)
+    console.log("c",req.query)
+    res.status(200);
+  }
+)
 
-//     axios.post("https://www.textit.biz/sendmsg", null, {
-//         params: {
-//             id: SID,
-//             pw: MID,
-//             to: to_number,
-//             text: message
-//         }
-//     }).then(response => {
-//         if (response.statusText === "OK") {
-//             let resp = {
-//                 status: "success",
-//                 data: response.data
-//             }
-//             res.status(200).send(JSON.parse(resp))
-//         }
-//     }).catch(err => {
-//         console.log(err);
-//         res.status(500).send(JSON.parse("{'status': 'Failed'}"));
-//     })
 
-// });
+
+  app.post('/addsms', (req, res) => {
+    console.log("a",req.body)
+    console.log("b",req.params)
+    console.log("c",req.query)
+   
+    const SID = "94711655166"
+    const MID = "9411"
+    const topic = req.body.topic;
+    const description = req.body.description;
+    const uploadDate = req.body.uploadDate;
+    const status = "sent";
+
+    const to_number = "0768921288";
+    const message = `${topic} at ${description},Please be present on ${uploadDate}`;
+
+    console.log(`https://www.textit.biz/sendmsg?id=94711655166&pw=9411&to=${to_number}&text=${message}`)
+
+    axios.get(`https://www.textit.biz/sendmsg`,{
+        params:{
+            id:SID,
+            pw:MID,
+            to:to_number,
+            text: message
+        }
+    })
+    .then(response => {
+        if (response.statusText === "OK") {
+            let resp = {
+
+                status: "success",
+                data: response.data
+            }
+            db.query("INSERT INTO sms (topic,description,uploadDate) VALUES (?,?,?)",
+            [topic,description,uploadDate],(err,result)=>{
+                if(err){
+                    console.log(err);
+                }else{
+                    res.status(200).json({r:resp,result:result})
+                }
+            });
+            
+        }
+    }).catch(err => {
+        console.log(err);
+        // res.status(500).send(JSON.parse("{'status': 'Failed'}"));
+    })
+});
+
 
   //decline
 app.put('/remove-sms', (req,res) => {

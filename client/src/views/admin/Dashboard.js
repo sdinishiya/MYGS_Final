@@ -1,11 +1,12 @@
 import React from "react";
 
+import {useSelector} from "react-redux";
+import {USER_TYPES} from "../../constants/CommonConstants";
+
+
 // components
 
 import FooterAdmin from "components/Footers/FooterAdmin.js";
-
-import CardLineChart from "components/Cards/CardLineChart.js";
-import CardBarChart from "components/Cards/CardBarChart.js";
 import CardPageVisits from "components/Cards/CardPageVisits.js";
 import CardSocialTraffic from "components/Cards/CardSocialTraffic.js";
 import CardPageVisits1 from "components/Cards/CardPageVisits1.js";
@@ -13,9 +14,14 @@ import CardPageVisits2 from "components/Cards/CardPageVisits2.js";
 
 
 export default function Dashboard() {
+  const user = useSelector((state) => state.authReducer);
+console.log(user)
   return (
-    <>
-      <div className="flex flex-wrap">
+  
+    <main>
+    {user.userType === USER_TYPES.ADMIN ? (
+        <>
+        <div className="flex flex-wrap">
         <div className="w-full xl:w-6/12 mb-12 xl:mb-0 px-4">
         <CardSocialTraffic />
         </div>
@@ -32,6 +38,12 @@ export default function Dashboard() {
         </div>
       </div>
       <FooterAdmin />
-    </>
+      </>
+    ):(
+      <>
+
+      </> 
+    )}
+    </main>
   );
 }

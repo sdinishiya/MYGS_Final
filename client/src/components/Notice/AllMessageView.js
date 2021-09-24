@@ -23,18 +23,21 @@ export default function AllmessageView() {
 
 
   const [notices,setnotices]=useState([])
-
+  
 
   useEffect(()=>{
     axios.get("http://localhost:3001/allsmsview").then((response)=>{
         setnotices(response.data)
+
     })
   },[])
 
 
     // activate
     const [status, setstatus] = useState("Sent");
+    
     const sendSMS = (smsID) => {
+
       axios
         .put("http://localhost:3001/send-sms", {
           status: status,
@@ -46,6 +49,19 @@ export default function AllmessageView() {
         });
       alert(" SMS Sent Successfully ");
     };
+
+    // axios.post('http://localhost:3001/send-sms',{
+    //     to :to,
+    //     message:message,
+    //     status:status,
+
+    //     }).then(()=>{
+    //        console.log("success");
+
+    //      });
+
+    //      alert("Sent successfully ");
+    // };
 
      // remove
      const [remove, setdecline] = useState("Removed");
@@ -113,11 +129,11 @@ export default function AllmessageView() {
                               Description  
                           </th>
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
-                              Date Uploaded  
+                              Event Date  
                           </th>
-                          <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
+                          {/* <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                               Villager Group 
-                          </th>
+                          </th> */}
                           <th className={ "px-6 align-middle border " + "bg-blueGray-50 text-blueGray-500 border-blueGray-100"}>
                               Status  
                           </th>
@@ -152,9 +168,9 @@ export default function AllmessageView() {
                               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                   {year + month + day}
                               </td>
-                              <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                              {/* <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                   {notice.type}
-                              </td>
+                              </td> */}
                               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                   {notice.status}
                               </td>
